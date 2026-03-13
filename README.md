@@ -83,3 +83,6 @@ If you want an inspectable runtime you can reason about, this is the right direc
 - `kernel/`
 - `tools/README.md`
 - `TECH_NOTES/2026-03-13_public-launch-positioning.md`
+- `RELEASES/v0.1.0.md`
+- `ANNOUNCEMENTS/github-launch.md`
+- `ANNOUNCEMENTS/openclaw-community.md`

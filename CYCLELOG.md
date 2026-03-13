@@ -45,4 +45,10 @@
 - spun out the framework into a dedicated public repo package
 - rewrote the root README around experimental advanced-operator positioning
 - published the curated public surface without handoffs/internal working artifacts
-- receipt: initial public repo commit pending
+- receipt: commit `6ccea4b`
+
+## 2026-03-13 17:28 Asia/Taipei
+- added repo-native launch assets: release note plus GitHub/OpenClaw community announcement drafts
+- linked launch assets from the public README
+- prepared GitHub release/tagging surface for `v0.1.0`
+- receipt: pending commit
