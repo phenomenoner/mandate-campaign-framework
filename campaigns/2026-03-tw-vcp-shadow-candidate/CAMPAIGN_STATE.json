@@ -1,0 +1,19 @@
+{
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "phase": "INTAKE",
+  "status": "ACTIVE",
+  "active_item_id": null,
+  "item_queue": [],
+  "cycle_budget": 8,
+  "back_transitions_remaining": 1,
+  "wakeup": {
+    "needed": false,
+    "reason": null
+  },
+  "last_receipt": {
+    "path": "receipts/000_campaign_created.json",
+    "summary": "campaign initialized from validated mandate"
+  },
+  "updated_at": "2026-03-13T15:03:04+08:00"
+}

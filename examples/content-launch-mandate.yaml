@@ -1,0 +1,35 @@
+mandate_id: 2026-03-content-launch-narrative
+adapter: content-production
+objective: >-
+  Produce a publication-ready long-form article positioning mandate-driven autonomous campaigns
+  as infrastructure-grade orchestration for technical PMs and founding engineers.
+scope:
+  in:
+    - architecture explanation
+    - product positioning
+    - delivery-packet framing
+  out:
+    - named customer claims
+    - pricing claims
+constraints:
+  word_count_range: [2400, 3200]
+  revision_cycles_max: 3
+authority:
+  autonomous:
+    - outline_generation
+    - draft_generation
+    - self_critique_and_revise
+  requires_gate:
+    - final_publish_approval
+    - competitor_naming
+escalation:
+  gate_conditions:
+    - confidence_below_threshold_after_revision_budget
+    - scope_boundary_hit
+  operator_gate_timeout_days: 2
+success_criteria:
+  - publication-ready draft
+  - explicit delivery packet
+  - no scope violations
+ttl_days: 7
+delivery_shape: publication-ready article packet

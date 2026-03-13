@@ -1,0 +1,38 @@
+mandate_id: 2026-03-tw-vcp-shadow-candidate
+adapter: steamer
+objective: >-
+  Produce one Taiwan intraday, paper-only strategy candidate that is strong enough
+  to enter shadow review.
+scope:
+  in:
+    - TW equities
+    - intraday strategy exploration
+    - existing Steamer research and replay surfaces
+  out:
+    - live capital changes
+    - new paid data sources
+constraints:
+  paper_only: true
+  no_new_paid_data: true
+  timebox_days: 14
+authority:
+  autonomous:
+    - idea_scout
+    - card_synthesis
+    - replay_triage
+    - deep_validation
+  requires_gate:
+    - promotion_to_shadow_review
+    - any capital posture change
+escalation:
+  gate_conditions:
+    - external_resource_needed
+    - evidence_insufficient_for_promotion
+    - stop_loss
+  operator_gate_timeout_days: 3
+success_criteria:
+  - one delivery packet with evidence summary
+  - explicit disposition for every touched candidate
+  - candidate is either shadow-reviewable, hold, or kill
+ttl_days: 14
+delivery_shape: shadow-reviewable strategy packet
