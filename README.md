@@ -1,88 +1,54 @@
-# Mandate Campaign Framework v0.1 (Experimental)
+# Mandate Campaign Framework (Experimental / Advanced-Operator)
 
-A **schema-strict, phase-gated runtime** for advanced OpenClaw campaigns.
+A mandate-driven, phase-gated campaign runtime direction for OpenClaw operators who want durable state, explicit contracts, and inspectable progression.
 
-This project helps operators run long-lived workflows with durable file-backed state, explicit contracts, bounded worker progression, and inspectable campaign flow.
+## Current proof posture (2026-03-14)
 
-## Who this is for
+Internal steering read:
+- **Phase 1 done** (executable adapter path proven)
+- **Phase 2 minimally proven** (seeded shadow proof is real)
+- **Phase 3 in progress** (operator-loop hardening is underway)
+- **6 canonical proof bundles now exist** in the active proving line
 
-This is for:
-- advanced OpenClaw operators
-- workflow designers
-- ops-heavy builders
-- people who value predictability, state, governance, and inspectability
+Hard boundary:
+- this remains **experimental**
+- this is for **advanced operators**
+- this is **not** a stable general orchestration product
 
-This is **not** for:
-- beginners looking for a no-code builder
-- users expecting a polished end-user app
-- anyone assuming generic orchestration maturity has already been fully proven
+## What this public repo is
 
-## What ships
+This repo is the public packaging/convergence surface for the framework direction.
 
-- core campaign kernel
-- runtime CLI:
+It currently carries the kernel/runtime baseline and public docs needed to track proof posture without hype.
+
+## What ships here today
+
+- kernel contracts and docs (`kernel/`)
+- runtime CLI surfaces (`tools/`):
   - `validate-mandate.py`
   - `init-campaign.py`
   - `advance-campaign.py`
   - `inspect-campaign.py`
-- strict schema enforcement for:
-  - `CampaignState`
-  - `WorkerStatePatch`
-  - `ReceiptRecord`
-- explicit phase transition semantics:
-  - forward
-  - retry
-  - failure
-  - back-transition
-- one reference adapter (`steamer`)
-- one second adapter sketch (`content-production`) for genericity pressure-testing
-- one seeded example campaign
-- tests for schema contracts and phase transition semantics
+- adapter docs/surfaces (`adapters/`)
+- seeded campaign/examples (`campaigns/`, `examples/`)
+- schema/phase semantics tests (`tests/`)
+- topology/status/release notes for operator calibration
 
 ## What this is not
 
-- not a no-code automation builder
-- not a polished install-and-forget product
-- not yet a production-proven domain-agnostic orchestration platform
-- not a mature adapter/plugin ecosystem
-
-## Why it matters
-
-Most agent workflows are still fragile: state is implicit, retries are vague, and failures are hard to inspect. This framework takes the opposite posture:
-- explicit state
-- explicit contracts
-- explicit transitions
-- bounded progression
-- durable artifacts
-- operator visibility
-
-## Operator reality
-
-Right now, operators still own real responsibility:
-- campaigns advance step-by-step via CLI
-- worker dispatch is still intentionally thin
-- adapter genericity is still being proved
-- operator UX is still being hardened
-
-## Honest beta posture
-
-The runtime is real. The contracts are real. The phase semantics are real.
-
-What is still being proven is the broader product surface:
-- adapter-boundary maturity
-- public ergonomics
-- packaging polish
-
-If you want magic, zero setup, or instant generic automation, this is the wrong repo.
-If you want an inspectable runtime you can reason about, this is the right direction.
+- not a beginner no-code builder
+- not a polished end-user app
+- not a claim that broad adapter/generic orchestration maturity is done
 
 ## Start here
 
-- `TOPOLOGY.md`
 - `STATUS.md`
-- `kernel/`
-- `tools/README.md`
-- `TECH_NOTES/2026-03-13_public-launch-positioning.md`
+- `TOPOLOGY.md`
+- `RELEASES/v0.2.0-alpha1.md`
 - `RELEASES/v0.1.0.md`
-- `ANNOUNCEMENTS/github-launch.md`
-- `ANNOUNCEMENTS/openclaw-community.md`
+- `tools/README.md`
+
+## Operator honesty
+
+If you want magic autopilot, this is the wrong repo.
+If you want explicit state/phase/operator boundaries and proof-driven iteration, this is the right direction.

@@ -2,81 +2,49 @@
 
 ## TL;DR
 
-The framework has three layers:
+Three-layer shape:
+- **kernel**: domain-free campaign contracts/state/phase model
+- **adapters**: domain mappings (Steamer as reference proving ground)
+- **runtime/tools**: bounded advance + inspect surfaces for operators
 
-- **kernel** — domain-free campaign runtime contracts
-- **adapters** — domain-specific mappings (Steamer first)
-- **workers/tools** — bounded executors that advance campaign state
+Current autonomy reality:
+- operator-gated runtime direction
+- proof-driven and intentionally narrow
+- **not** stable general orchestration
 
-## Topology graphic
+## Topology sketch
 
 ```text
 operator mandate
       |
       v
-[MandateSpec] -> [CampaignState + phase machine] -> [dispatcher] -> [bounded worker]
-      |                                                        |
-      |                                                        v
-      |                                                [receipt + artifacts]
-      |                                                        |
-      +------------------------> [operator-gate] <-------------+
-                                 |
-                                 v
-                           [DeliveryPacket]
+[MandateSpec] -> [CampaignState + phase machine] -> [dispatcher/runtime] -> [adapter worker path]
+      |                                                        |                    |
+      |                                                        v                    v
+      |                                                 [receipt + artifacts] -> [inspect]
+      |                                                                           |
+      +-----------------------------> [operator gate / decisions] <---------------+
 ```
 
-## Layer roles
+## Current proof topology (2026-03-14)
 
-### 1) `kernel/`
-Owns the invariant operating model:
-- mandate schema
-- campaign state
-- phase machine
-- worker protocol
-- delivery packet
-- dispatcher semantics
+Steering position:
+- Phase 1 done
+- Phase 2 minimally proven
+- Phase 3 in progress
+- six canonical proof bundles exist in the active proving line
 
-### 2) `adapters/`
-Owns domain semantics:
-- candidate shape
-- evaluation meaning
-- authority classification
-- delivery metadata
-- domain-specific phase decomposition
+What that means:
+- end-to-end direction is real enough to test
+- operator-loop hardening has real slices
+- recovery/policy breadth is still intentionally incomplete
 
-Current adapter set:
-- `adapters/steamer/` — first reference adapter / proving ground
-- `adapters/content-production/` — second adapter sketch used to pressure-test kernel genericity
+## Public packaging topology
 
-### 3) `protocol/` / `tools/`
-Owns runtime posture:
-- how OpenClaw should operate campaigns
-- whether/how this should become an agent skill
-- validators / init / advance / inspect helpers
-- thin operator skill blueprint once the kernel is stable enough
+This repository is the public-facing convergence surface.
 
-Current runtime-first surfaces:
-- `tools/validate-mandate.py`
-- `tools/init-campaign.py`
-- `tools/advance-campaign.py`
-- `tools/inspect-campaign.py`
-- `campaigns/` for file-backed campaign instances
-- `tests/test_runtime_schema_fixtures.py` for contract-locking schema fixtures
+Use release/status docs as the maturity anchor:
+- `RELEASES/v0.2.0-alpha1.md`
+- `STATUS.md`
 
-Runtime parser posture:
-- mandate/default YAML parsing is standardized on PyYAML (`yaml.safe_load`)
-
-Runtime hardening posture:
-- schema contracts for `CampaignState`, `WorkerStatePatch`, and `ReceiptRecord` are now locked by explicit valid/invalid fixtures
-- phase movement is no longer just implicit dispatcher flow; runtime now enforces explicit transition semantics including forward / retry / failure / back-transition cases
-- current hardening order is: schema fixtures first, explicit phase transition semantics second, adapter-boundary proof later when a second adapter is materially real
-
-## Reference adapter
-- `adapters/steamer/` is the first reference adapter.
-- It should be treated as a proving ground for the kernel, not as the kernel definition source.
-
-## Release / packaging topology
-- This repo is the curated public packaging surface for outside operators.
-- It exposes the kernel, adapters, tools, tests, examples, and seeded campaign material.
-- It intentionally omits handoffs and internal-only working notes from the working playbook.
-- Public posture remains: experimental / advanced-operator, not beginner-facing generic orchestration.
+Do not treat this repo as a claim of stable orchestration maturity.
