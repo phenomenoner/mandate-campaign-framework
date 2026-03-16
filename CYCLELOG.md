@@ -52,3 +52,9 @@
 - linked launch assets from the public README
 - prepared GitHub release/tagging surface for `v0.1.0`
 - receipt: pending commit
+
+## 2026-03-17 03:27 Asia/Taipei
+- documented where `Tetora-role` style multi-role surfaces fit vs do not fit in `mandate-campaign-framework`
+- fixed the recommendation that role-like surfaces belong at the adapter/operator boundary, not in the kernel/runtime control plane
+- identified the most plausible future MVP roles as `Steamer Scout`, `Delivery Brief`, and `Hold Judge`
+- receipt: pending commit
