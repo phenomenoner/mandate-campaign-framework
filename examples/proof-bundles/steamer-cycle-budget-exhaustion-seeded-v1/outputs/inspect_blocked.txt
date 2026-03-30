@@ -1,0 +1,21 @@
+inspect-campaign: OK
+campaign_dir: ./examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1/run/2026-03-tw-vcp-shadow-candidate
+campaign_id: 2026-03-tw-vcp-shadow-candidate
+mandate_id: 2026-03-tw-vcp-shadow-candidate
+adapter: steamer (source=campaign_state.adapter, runtime_registered=True)
+phase: EXPLORE
+status: BLOCKED
+cycle_budget: 0
+back_transitions_remaining: 1
+active_item_id: tw-vcp-breakout-open-auction
+item_queue_len: 3
+wakeup: needed=True reason=cycle_budget_exhausted
+updated_at: 2026-03-14T00:24:59+08:00
+last_receipt: path=receipts/001_cycle_budget_exhausted.json summary=campaign blocked: cycle budget exhausted (dispatch=adapter, adapter=steamer)
+receipts_total: 2
+drift: clean (no adapter-domain drift detected)
+receipts_preview(last 5):
+- 000_campaign_created | INTAKE | campaign_created | campaign initialized from validated mandate | 2026-03-14T00:24:59+08:00
+- 001_cycle_budget_exhausted | EXPLORE | cycle_budget_exhausted | campaign blocked: cycle budget exhausted (dispatch=adapter, adapter=steamer) | 2026-03-14T00:24:59+08:00
+warnings:
+- opaque adapter/root extension fields present (not kernel-validated): work_items

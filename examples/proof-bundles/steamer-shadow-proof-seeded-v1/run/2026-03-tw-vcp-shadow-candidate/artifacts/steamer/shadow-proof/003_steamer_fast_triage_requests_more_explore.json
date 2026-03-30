@@ -1,0 +1,19 @@
+{
+  "event": "steamer_fast_triage_requests_more_explore",
+  "phase_before": "EVALUATE",
+  "phase_after": "EXPLORE",
+  "status_before": "ACTIVE",
+  "status_after": "ACTIVE",
+  "summary": "steamer fast-triage marked tw-vcp-breakout-open-auction as evidence-insufficient; rotate to tw-vcp-late-reclaim-pullback for another explore pass",
+  "work_item": {
+    "id": "tw-vcp-breakout-open-auction",
+    "selection_reason": "state_active_item",
+    "decision": "fast_triage_rotate_to_next_candidate",
+    "queue_before_len": 3,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-breakout-open-auction",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback",
+    "next_item_id": "tw-vcp-late-reclaim-pullback"
+  },
+  "created_at": "2026-03-13T23:36:22+08:00"
+}

@@ -65,6 +65,7 @@ def main() -> int:
 
     print("init-campaign: OK")
     print(f"campaign_dir: {campaign_dir}")
+    print(f"adapter: {mandate['adapter']} (source=mandate.adapter -> state.adapter)")
     print(f"mandate: {canonical_mandate_path}")
     print(f"state: {state_path}")
     print(f"receipt: {receipt_path}")

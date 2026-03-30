@@ -4,7 +4,7 @@ Steamer is the first **reference adapter** for the mandate-campaign framework.
 
 ## Important boundary
 Steamer is a proving ground, not the kernel.
-Its current `autonomous-slow-cook` lane should be read as:
+Its current seeded proving line should be read as:
 - an adapter discovery source
 - a reference implementation of campaign state / receipts / bounded workers
 - not the product definition source for the framework
@@ -24,10 +24,10 @@ Its current `autonomous-slow-cook` lane should be read as:
 - classify authority boundaries (e.g. shadow-only vs capital posture changes)
 - package delivery in strategy/operator language
 
-## Current mapping source
-- `projects/steamer/lanes/autonomous-slow-cook/`
-- `projects/steamer/lanes/TOPOLOGY.md`
-- `projects/steamer/topology-pack-l0.md`
+## Current public reference surface
+- `examples/steamer-vcp-mandate.yaml`
+- `examples/shadow-proof-demo.md`
+- `examples/proof-bundles/PROOF_INDEX.md`
 
 ## Current caution
 The current Steamer pilot has already proven that campaign state, receipts, and domain artifacts can advance autonomously.

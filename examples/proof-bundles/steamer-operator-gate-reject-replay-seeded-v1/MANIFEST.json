@@ -1,0 +1,38 @@
+{
+  "bundle_id": "steamer-operator-gate-reject-replay-seeded-v1",
+  "description": "Canonical seeded Steamer negative operator-gate replay capture (reject_shadow_review -> CLOSED).",
+  "source_mandate": "examples/steamer-vcp-mandate.yaml",
+  "campaign_dir": "run/2026-03-tw-vcp-shadow-candidate",
+  "advance_outputs": [
+    "outputs/advance/001_intake_to_explore.json",
+    "outputs/advance/002_explore_to_evaluate_first_candidate.json",
+    "outputs/advance/003_evaluate_back_to_explore_rotate_candidate.json",
+    "outputs/advance/004_explore_to_evaluate_second_candidate.json",
+    "outputs/advance/005_evaluate_to_synthesize.json",
+    "outputs/advance/006_synthesize_to_gate.json",
+    "outputs/advance/007_gate_to_operator_gate_escalate.json",
+    "outputs/advance/008_operator_gate_replay_reject_to_closed.json"
+  ],
+  "required_proof_pointers": {
+    "pre_replay_inspect_text": "outputs/inspect_pre_replay.txt",
+    "pre_replay_inspect_json": "outputs/inspect_pre_replay.json",
+    "pre_replay_state_snapshot": "outputs/state_pre_replay.json",
+    "replay_output": "outputs/advance/008_operator_gate_replay_reject_to_closed.json",
+    "post_replay_inspect_text": "outputs/inspect_post_replay.txt",
+    "post_replay_inspect_json": "outputs/inspect_post_replay.json",
+    "post_replay_state_snapshot": "outputs/state_post_replay.json",
+    "replay_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/008_steamer_operator_gate_decision_replayed.json",
+    "gate_replay_artifact": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/gate-replay/008_tw-vcp-late-reclaim-pullback_reject_shadow_review.json",
+    "campaign_state": "run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json"
+  },
+  "expected_invariants": {
+    "pre_replay_phase": "GATE",
+    "pre_replay_status": "OPERATOR_GATE",
+    "final_phase": "CLOSED",
+    "final_status": "CLOSED",
+    "drift_status": "clean",
+    "replay_event_receipt_id": "008_steamer_operator_gate_decision_replayed",
+    "replay_decision": "reject_shadow_review",
+    "active_item_id": "tw-vcp-late-reclaim-pullback"
+  }
+}

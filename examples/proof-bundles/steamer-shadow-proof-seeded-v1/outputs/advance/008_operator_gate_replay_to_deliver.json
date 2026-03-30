@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "changed": true,
+  "dry_run": false,
+  "campaign_dir": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "runtime_adapter": "steamer",
+  "dispatch_mode": "adapter",
+  "phase_before": "GATE",
+  "phase_after": "DELIVER",
+  "status_before": "OPERATOR_GATE",
+  "status_after": "ACTIVE",
+  "result_type": "ADVANCE",
+  "resume_requested": false,
+  "resume_applied": false,
+  "replay_decision": "approve_shadow_review",
+  "replay_applied": true,
+  "receipt_id": "008_steamer_operator_gate_decision_replayed",
+  "receipt_path": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/008_steamer_operator_gate_decision_replayed.json",
+  "materialized_artifacts": [
+    "artifacts/steamer/candidate-queue.json",
+    "artifacts/steamer/gate-replay/008_tw-vcp-late-reclaim-pullback_approve_shadow_review.json",
+    "artifacts/steamer/shadow-proof/008_steamer_operator_gate_decision_replayed.json"
+  ],
+  "wakeup": {
+    "needed": false,
+    "reason": null
+  },
+  "acted_item_id": "tw-vcp-late-reclaim-pullback",
+  "acted_item_reason": "state_active_item",
+  "acted_item_decision": "operator_gate_replay_approved_shadow_review",
+  "queue_len_before": 2,
+  "queue_len_after": 2
+}

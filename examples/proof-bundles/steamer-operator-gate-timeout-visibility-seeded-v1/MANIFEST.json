@@ -1,0 +1,28 @@
+{
+  "bundle_id": "steamer-operator-gate-timeout-visibility-seeded-v1",
+  "description": "Canonical seeded Steamer operator-gate stall capture with inspect timeout/staleness visibility.",
+  "source_mandate": "examples/steamer-vcp-mandate.yaml",
+  "campaign_dir": "run/2026-03-tw-vcp-shadow-candidate",
+  "advance_outputs": [
+    "outputs/advance/001_gate_to_operator_gate_escalate.json"
+  ],
+  "required_proof_pointers": {
+    "gate_fixture_mutation_receipt": "outputs/001_force_gate_active_fixture.txt",
+    "stale_fixture_mutation_receipt": "outputs/002_force_operator_gate_stale_fixture.txt",
+    "inspect_text": "outputs/inspect_operator_gate_stale.txt",
+    "inspect_json": "outputs/inspect_operator_gate_stale.json",
+    "campaign_state": "run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json",
+    "operator_gate_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_operator_gate_shadow_review_required.json"
+  },
+  "expected_invariants": {
+    "phase": "GATE",
+    "status": "OPERATOR_GATE",
+    "wakeup_needed": true,
+    "wakeup_reason": "steamer_shadow_review_gate",
+    "advance_result_type": "ESCALATE",
+    "advance_receipt_event": "steamer_operator_gate_shadow_review_required",
+    "gate_visibility_stale": true,
+    "gate_visibility_signal": "operator_gate_timeout_exceeded",
+    "gate_visibility_timeout_days": 3
+  }
+}

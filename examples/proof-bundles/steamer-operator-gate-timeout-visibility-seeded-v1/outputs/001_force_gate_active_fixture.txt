@@ -1,0 +1,6 @@
+fixture_mutation=applied
+phase=GATE
+status=ACTIVE
+active_item_id=tw-vcp-late-reclaim-pullback
+item_queue_len=1
+cycle_budget=6

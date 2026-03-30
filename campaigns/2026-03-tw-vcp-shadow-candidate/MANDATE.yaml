@@ -36,3 +36,7 @@ success_criteria:
   - candidate is either shadow-reviewable, hold, or kill
 ttl_days: 14
 delivery_shape: shadow-reviewable strategy packet
+work_items:
+  - tw-vcp-breakout-open-auction
+  - tw-vcp-late-reclaim-pullback
+  - tw-vcp-range-compression-reversal

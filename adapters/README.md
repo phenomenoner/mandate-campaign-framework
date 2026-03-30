@@ -16,3 +16,4 @@ If a kernel change exists only to make one adapter more comfortable, it is proba
 ## Current adapters
 - `steamer/` — first reference adapter / proving ground
 - `content-production/` — second adapter sketch for anti-domain-capture pressure testing
+- `openclaw-mem/` — minimal executable dev-decision adapter surface for SL-M1 shadow-lane dry-runs (native-first, pointer-based)

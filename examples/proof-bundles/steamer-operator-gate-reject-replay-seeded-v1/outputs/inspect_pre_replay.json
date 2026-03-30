@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "campaign_dir": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "adapter_runtime_registered": true,
+  "state": {
+    "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+    "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+    "adapter": "steamer",
+    "phase": "GATE",
+    "status": "OPERATOR_GATE",
+    "active_item_id": "tw-vcp-late-reclaim-pullback",
+    "item_queue": [
+      "tw-vcp-late-reclaim-pullback",
+      "tw-vcp-range-compression-reversal"
+    ],
+    "cycle_budget": 1,
+    "back_transitions_remaining": 0,
+    "wakeup": {
+      "needed": true,
+      "reason": "steamer_shadow_review_gate"
+    },
+    "last_receipt": {
+      "path": "receipts/007_steamer_operator_gate_shadow_review_required.json",
+      "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision"
+    },
+    "updated_at": "2026-03-14T01:02:01+08:00"
+  },
+  "operator_gate_visibility": {
+    "blocked": true,
+    "status": "OPERATOR_GATE",
+    "wakeup_reason": "steamer_shadow_review_gate",
+    "updated_at": "2026-03-14T01:02:01+08:00",
+    "age_seconds": 0,
+    "timeout_days": 3,
+    "timeout_seconds": 259200,
+    "remaining_seconds": 259200,
+    "overdue_seconds": null,
+    "stale": false,
+    "signal": "operator_gate_waiting_for_operator",
+    "signal_reason": "within_timeout_window"
+  },
+  "last_work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "operator_gate_shadow_review_required",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback"
+  },
+  "receipts_total": 8,
+  "receipts_preview": [
+    {
+      "receipt_id": "003_steamer_fast_triage_requests_more_explore",
+      "phase": "EXPLORE",
+      "event": "steamer_fast_triage_requests_more_explore",
+      "summary": "steamer fast-triage marked tw-vcp-breakout-open-auction as evidence-insufficient; rotate to tw-vcp-late-reclaim-pullback for another explore pass",
+      "created_at": "2026-03-14T01:02:00+08:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/003_steamer_fast_triage_requests_more_explore.json",
+      "work_item": {
+        "id": "tw-vcp-breakout-open-auction",
+        "selection_reason": "state_active_item",
+        "decision": "fast_triage_rotate_to_next_candidate",
+        "queue_before_len": 3,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-breakout-open-auction",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback",
+        "next_item_id": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "004_steamer_idea_scout_completed",
+      "phase": "EVALUATE",
+      "event": "steamer_idea_scout_completed",
+      "summary": "steamer idea-scout produced a scoped candidate sketch for tw-vcp-late-reclaim-pullback",
+      "created_at": "2026-03-14T01:02:00+08:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/004_steamer_idea_scout_completed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "idea_scout_completed",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "005_steamer_deep_validation_completed",
+      "phase": "SYNTHESIZE",
+      "event": "steamer_deep_validation_completed",
+      "summary": "steamer deep-validation accepted tw-vcp-late-reclaim-pullback for card synthesis",
+      "created_at": "2026-03-14T01:02:01+08:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/005_steamer_deep_validation_completed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "deep_validation_accepted_for_synthesis",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "006_steamer_card_synthesis_completed",
+      "phase": "GATE",
+      "event": "steamer_card_synthesis_completed",
+      "summary": "steamer card-synthesis packaged tw-vcp-late-reclaim-pullback for operator gate review",
+      "created_at": "2026-03-14T01:02:01+08:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/006_steamer_card_synthesis_completed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "card_synthesis_packaged_for_gate",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "007_steamer_operator_gate_shadow_review_required",
+      "phase": "GATE",
+      "event": "steamer_operator_gate_shadow_review_required",
+      "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision",
+      "created_at": "2026-03-14T01:02:01+08:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/007_steamer_operator_gate_shadow_review_required.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "operator_gate_shadow_review_required",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    }
+  ],
+  "drift": {
+    "status": "clean",
+    "summary": "no adapter-domain drift detected",
+    "phase_map_value": "operator-gate",
+    "findings": []
+  },
+  "warnings": [
+    "opaque adapter/root extension fields present (not kernel-validated): work_items"
+  ],
+  "errors": []
+}

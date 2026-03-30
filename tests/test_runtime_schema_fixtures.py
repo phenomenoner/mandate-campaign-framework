@@ -20,6 +20,7 @@ def _valid_campaign_state() -> dict:
     return {
         "campaign_id": "2026-03-example",
         "mandate_id": "2026-03-example",
+        "adapter": "steamer",
         "phase": "EXPLORE",
         "status": "ACTIVE",
         "active_item_id": None,
@@ -60,6 +61,13 @@ def _valid_receipt_record() -> dict:
         "event": "phase_advanced_explore_to_evaluate",
         "summary": "advanced campaign one bounded step: EXPLORE -> EVALUATE",
         "artifact_refs": ["CAMPAIGN_STATE.json"],
+        "work_item": {
+            "id": "item-002",
+            "selection_reason": "item_queue_head",
+            "decision": "idea_scout_completed",
+            "queue_before_len": 2,
+            "queue_after_len": 2,
+        },
         "created_at": "2026-03-13T16:52:00+08:00",
     }
 
@@ -72,6 +80,7 @@ class RuntimeSchemaFixtureTests(unittest.TestCase):
     def test_campaign_state_invalid_fixture(self) -> None:
         payload = deepcopy(_valid_campaign_state())
         payload["phase"] = "BROKEN"
+        payload["adapter"] = "bad adapter id"
         payload["cycle_budget"] = -1
         payload["wakeup"] = "now"
         payload["updated_at"] = "not-an-iso-datetime"
@@ -79,6 +88,7 @@ class RuntimeSchemaFixtureTests(unittest.TestCase):
         errors = validate_campaign_state(payload)
 
         self.assertTrue(any("campaign_state.phase" in error for error in errors))
+        self.assertTrue(any("campaign_state.adapter" in error for error in errors))
         self.assertTrue(any("campaign_state.cycle_budget" in error for error in errors))
         self.assertTrue(any("campaign_state.wakeup" in error for error in errors))
         self.assertTrue(any("campaign_state.updated_at" in error for error in errors))
@@ -115,6 +125,8 @@ class RuntimeSchemaFixtureTests(unittest.TestCase):
         payload["artifact_refs"] = ["CAMPAIGN_STATE.json", ""]
         payload["created_at"] = "bad-time"
         payload["campaign_id"] = "wrong-campaign"
+        payload["work_item"]["decision"] = ""
+        payload["work_item"]["queue_before_len"] = -1
 
         errors = validate_receipt_record(
             payload,
@@ -125,6 +137,8 @@ class RuntimeSchemaFixtureTests(unittest.TestCase):
         self.assertTrue(any("artifact_refs" in error for error in errors))
         self.assertTrue(any("created_at" in error for error in errors))
         self.assertTrue(any("campaign_id mismatch" in error for error in errors))
+        self.assertTrue(any("receipt.work_item.decision" in error for error in errors))
+        self.assertTrue(any("receipt.work_item.queue_before_len" in error for error in errors))
 
 
 if __name__ == "__main__":

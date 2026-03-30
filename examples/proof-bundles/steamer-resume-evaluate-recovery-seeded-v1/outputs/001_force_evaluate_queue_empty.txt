@@ -1,0 +1,9 @@
+fixture_mutation=applied
+mandate.constraints.control_lane_only=true
+mandate.control_scenario=resume-evaluate-recovery-seeded
+phase=EVALUATE
+status=ACTIVE
+active_item_id=null
+item_queue=[]
+wakeup.reason=null
+back_transitions_remaining=1

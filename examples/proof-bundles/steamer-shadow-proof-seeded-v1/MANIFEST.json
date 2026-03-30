@@ -1,0 +1,33 @@
+{
+  "bundle_id": "steamer-shadow-proof-seeded-v1",
+  "description": "Canonical seeded Steamer shadow-proof run including bounded steps, operator-gate replay, and final inspect output.",
+  "source_mandate": "examples/steamer-vcp-mandate.yaml",
+  "campaign_dir": "run/2026-03-tw-vcp-shadow-candidate",
+  "advance_outputs": [
+    "outputs/advance/001_intake_to_explore.json",
+    "outputs/advance/002_explore_to_evaluate_first_candidate.json",
+    "outputs/advance/003_evaluate_back_to_explore_rotate_candidate.json",
+    "outputs/advance/004_explore_to_evaluate_second_candidate.json",
+    "outputs/advance/005_evaluate_to_synthesize.json",
+    "outputs/advance/006_synthesize_to_gate.json",
+    "outputs/advance/007_gate_to_operator_gate_escalate.json",
+    "outputs/advance/008_operator_gate_replay_to_deliver.json"
+  ],
+  "required_proof_pointers": {
+    "mandate": "run/2026-03-tw-vcp-shadow-candidate/MANDATE.yaml",
+    "campaign_state": "run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json",
+    "receipts_dir": "run/2026-03-tw-vcp-shadow-candidate/receipts",
+    "idea_scout_note": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/idea-scout/tw-vcp-late-reclaim-pullback.md",
+    "gate_replay_artifact": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/gate-replay/008_tw-vcp-late-reclaim-pullback_approve_shadow_review.json",
+    "inspect_text": "outputs/inspect.txt",
+    "inspect_json": "outputs/inspect.json"
+  },
+  "expected_invariants": {
+    "final_phase": "DELIVER",
+    "final_status": "ACTIVE",
+    "drift_status": "clean",
+    "replay_event_receipt_id": "008_steamer_operator_gate_decision_replayed",
+    "replay_decision": "approve_shadow_review",
+    "active_item_id": "tw-vcp-late-reclaim-pullback"
+  }
+}

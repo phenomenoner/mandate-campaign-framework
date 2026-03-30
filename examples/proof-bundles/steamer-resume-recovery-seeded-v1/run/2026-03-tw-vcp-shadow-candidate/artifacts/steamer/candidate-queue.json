@@ -1,0 +1,11 @@
+{
+  "phase": "EVALUATE",
+  "active_item_id": "tw-vcp-breakout-open-auction",
+  "item_queue": [
+    "tw-vcp-breakout-open-auction",
+    "tw-vcp-late-reclaim-pullback",
+    "tw-vcp-range-compression-reversal"
+  ],
+  "selection_reason": "resume_reseeded_queue_head",
+  "updated_at": "2026-03-13T23:45:23+08:00"
+}

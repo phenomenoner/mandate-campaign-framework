@@ -14,6 +14,8 @@ except ModuleNotFoundError:  # pragma: no cover - environment-dependent
     yaml = None
 
 TZ = ZoneInfo("Asia/Taipei")
+ADAPTER_ID_PATTERN = r"[a-zA-Z0-9._-]+"
+
 KERNEL_REQUIRED_FIELDS = {
     "mandate_id",
     "objective",
@@ -50,6 +52,7 @@ RECEIPT_REQUIRED_FIELDS = {
 CAMPAIGN_STATE_REQUIRED_FIELDS = {
     "campaign_id",
     "mandate_id",
+    "adapter",
     "phase",
     "status",
     "active_item_id",
@@ -83,6 +86,12 @@ DEFAULT_PHASE = "INTAKE"
 DEFAULT_STATUS = "ACTIVE"
 DEFAULT_CYCLE_BUDGET = 8
 DEFAULT_BACK_TRANSITIONS = 1
+ELIGIBLE_BLOCKED_VISIBILITY_CONTROL_SCENARIOS = {
+    "budget-exhaustion-seeded",
+}
+ELIGIBLE_BLOCKED_VISIBILITY_WAKEUP_REASONS = {
+    "cycle_budget_exhausted",
+}
 
 
 @dataclass
@@ -92,6 +101,12 @@ class ValidationResult:
     warnings: list[str]
     mandate: dict[str, Any] | None = None
     framework_root: Path | None = None
+
+
+@dataclass(frozen=True)
+class AdapterIdentity:
+    adapter_id: str
+    source: str
 
 
 def framework_root_from_script(script_path: str | Path) -> Path:
@@ -168,7 +183,7 @@ def validate_mandate_file(path: Path, framework_root: Path) -> ValidationResult:
     mandate_id = data.get("mandate_id")
     if not isinstance(mandate_id, str) or not mandate_id.strip():
         errors.append("mandate_id must be a non-empty string")
-    elif not re.fullmatch(r"[a-zA-Z0-9._-]+", mandate_id):
+    elif not re.fullmatch(ADAPTER_ID_PATTERN, mandate_id):
         errors.append("mandate_id must match [a-zA-Z0-9._-]+")
 
     objective = data.get("objective")
@@ -178,6 +193,8 @@ def validate_mandate_file(path: Path, framework_root: Path) -> ValidationResult:
     adapter = data.get("adapter")
     if not isinstance(adapter, str) or not adapter.strip():
         errors.append("adapter must be a non-empty string")
+    elif not re.fullmatch(ADAPTER_ID_PATTERN, adapter):
+        errors.append("adapter must match [a-zA-Z0-9._-]+")
     else:
         adapter_dir = framework_root / "adapters" / adapter
         if not adapter_dir.exists() or not adapter_dir.is_dir():
@@ -259,6 +276,7 @@ def build_initial_state(mandate: dict[str, Any], adapter_defaults: dict[str, int
     return {
         "campaign_id": mandate["mandate_id"],
         "mandate_id": mandate["mandate_id"],
+        "adapter": mandate["adapter"],
         "phase": DEFAULT_PHASE,
         "status": DEFAULT_STATUS,
         "active_item_id": None,
@@ -289,6 +307,91 @@ def build_initial_receipt(mandate: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def resolve_campaign_adapter_identity(
+    campaign_state: dict[str, Any], mandate: dict[str, Any]
+) -> AdapterIdentity:
+    state_adapter = campaign_state.get("adapter") if isinstance(campaign_state, dict) else None
+    mandate_adapter = mandate.get("adapter") if isinstance(mandate, dict) else None
+
+    if isinstance(state_adapter, str) and state_adapter.strip():
+        if isinstance(mandate_adapter, str) and mandate_adapter.strip() and mandate_adapter != state_adapter:
+            raise ValueError(
+                "adapter identity mismatch between state and mandate: "
+                f"state.adapter={state_adapter!r}, mandate.adapter={mandate_adapter!r}"
+            )
+        return AdapterIdentity(adapter_id=state_adapter, source="campaign_state.adapter")
+
+    if isinstance(mandate_adapter, str) and mandate_adapter.strip():
+        return AdapterIdentity(adapter_id=mandate_adapter, source="mandate.adapter")
+
+    raise ValueError(
+        "unable to resolve adapter identity; expected non-empty campaign_state.adapter or mandate.adapter"
+    )
+
+
+def evaluate_blocked_visibility_closeout_eligibility(
+    state: Any,
+    mandate: Any,
+) -> dict[str, Any]:
+    reasons: list[str] = []
+
+    if not isinstance(state, dict):
+        reasons.append("campaign state must be an object")
+        return {
+            "eligible": False,
+            "reasons": reasons,
+            "control_scenario": None,
+            "control_lane_only": None,
+            "wakeup_reason": None,
+        }
+
+    if not isinstance(mandate, dict):
+        reasons.append("mandate must be an object")
+        return {
+            "eligible": False,
+            "reasons": reasons,
+            "control_scenario": None,
+            "control_lane_only": None,
+            "wakeup_reason": None,
+        }
+
+    status = state.get("status")
+    if status != "BLOCKED":
+        reasons.append("status must be BLOCKED")
+
+    wakeup = state.get("wakeup") if isinstance(state.get("wakeup"), dict) else {}
+    wakeup_reason = wakeup.get("reason") if isinstance(wakeup.get("reason"), str) else None
+    if wakeup_reason not in ELIGIBLE_BLOCKED_VISIBILITY_WAKEUP_REASONS:
+        reasons.append(
+            "wakeup.reason must be one of "
+            f"{sorted(ELIGIBLE_BLOCKED_VISIBILITY_WAKEUP_REASONS)}"
+        )
+
+    constraints = mandate.get("constraints") if isinstance(mandate.get("constraints"), dict) else {}
+    control_lane_only = constraints.get("control_lane_only") is True
+    if not control_lane_only:
+        reasons.append("mandate.constraints.control_lane_only must be true")
+
+    control_scenario = (
+        mandate.get("control_scenario")
+        if isinstance(mandate.get("control_scenario"), str)
+        else None
+    )
+    if control_scenario not in ELIGIBLE_BLOCKED_VISIBILITY_CONTROL_SCENARIOS:
+        reasons.append(
+            "mandate.control_scenario must be one of "
+            f"{sorted(ELIGIBLE_BLOCKED_VISIBILITY_CONTROL_SCENARIOS)}"
+        )
+
+    return {
+        "eligible": not reasons,
+        "reasons": reasons,
+        "control_scenario": control_scenario,
+        "control_lane_only": control_lane_only,
+        "wakeup_reason": wakeup_reason,
+    }
+
+
 def validate_campaign_state(state: Any) -> list[str]:
     if not isinstance(state, dict):
         return ["campaign state must be a JSON object"]
@@ -305,6 +408,12 @@ def validate_campaign_state(state: Any) -> list[str]:
     mandate_id = state.get("mandate_id")
     if not isinstance(mandate_id, str) or not mandate_id.strip():
         errors.append("campaign_state.mandate_id must be a non-empty string")
+
+    adapter = state.get("adapter")
+    if not isinstance(adapter, str) or not adapter.strip():
+        errors.append("campaign_state.adapter must be a non-empty string")
+    elif not re.fullmatch(ADAPTER_ID_PATTERN, adapter):
+        errors.append("campaign_state.adapter must match [a-zA-Z0-9._-]+")
 
     phase = state.get("phase")
     if not isinstance(phase, str) or phase not in VALID_PHASES:
@@ -360,6 +469,35 @@ def _validate_last_receipt_shape(value: Any, field_name: str) -> list[str]:
         errors.append(f"{field_name}.path must be null or string")
     if not isinstance(summary, str) or not summary.strip():
         errors.append(f"{field_name}.summary must be a non-empty string")
+    return errors
+
+
+def _validate_receipt_work_item_shape(value: Any, field_name: str) -> list[str]:
+    errors: list[str] = []
+    if not isinstance(value, dict):
+        return [f"{field_name} must be an object"]
+
+    item_id = value.get("id")
+    if item_id is not None and not isinstance(item_id, str):
+        errors.append(f"{field_name}.id must be null or string")
+
+    for key in ("selection_reason", "decision"):
+        raw = value.get(key)
+        if not isinstance(raw, str) or not raw.strip():
+            errors.append(f"{field_name}.{key} must be a non-empty string")
+
+    for key in ("queue_before_len", "queue_after_len"):
+        if key in value:
+            raw = value.get(key)
+            if not isinstance(raw, int) or raw < 0:
+                errors.append(f"{field_name}.{key} must be a non-negative integer")
+
+    for key in ("queue_before_head", "queue_after_head", "next_item_id"):
+        if key in value:
+            raw = value.get(key)
+            if raw is not None and not isinstance(raw, str):
+                errors.append(f"{field_name}.{key} must be null or string")
+
     return errors
 
 
@@ -546,6 +684,9 @@ def validate_receipt_record(
     else:
         if any(not isinstance(item, str) or not item.strip() for item in artifact_refs):
             errors.append("receipt.artifact_refs must only contain non-empty strings")
+
+    if "work_item" in receipt:
+        errors.extend(_validate_receipt_work_item_shape(receipt.get("work_item"), "receipt.work_item"))
 
     if not _is_iso_datetime(receipt.get("created_at")):
         errors.append("receipt.created_at must be an ISO datetime string")

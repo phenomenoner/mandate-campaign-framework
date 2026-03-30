@@ -1,0 +1,142 @@
+{
+  "ok": true,
+  "campaign_dir": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "adapter_runtime_registered": true,
+  "state": {
+    "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+    "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+    "adapter": "steamer",
+    "phase": "DELIVER",
+    "status": "ACTIVE",
+    "active_item_id": "tw-vcp-late-reclaim-pullback",
+    "item_queue": [
+      "tw-vcp-late-reclaim-pullback",
+      "tw-vcp-range-compression-reversal"
+    ],
+    "cycle_budget": 0,
+    "back_transitions_remaining": 0,
+    "wakeup": {
+      "needed": false,
+      "reason": null
+    },
+    "last_receipt": {
+      "path": "receipts/008_steamer_operator_gate_decision_replayed.json",
+      "summary": "steamer operator-gate decision replayed: approve_shadow_review for tw-vcp-late-reclaim-pullback; campaign can move to DELIVER"
+    },
+    "updated_at": "2026-03-13T23:36:23+08:00"
+  },
+  "last_work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "operator_gate_replay_approved_shadow_review",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback",
+    "operator_decision": "approve_shadow_review",
+    "operator_note": "shadow evidence accepted (seeded proof)"
+  },
+  "receipts_total": 9,
+  "receipts_preview": [
+    {
+      "receipt_id": "004_steamer_idea_scout_completed",
+      "phase": "EVALUATE",
+      "event": "steamer_idea_scout_completed",
+      "summary": "steamer idea-scout produced a scoped candidate sketch for tw-vcp-late-reclaim-pullback",
+      "created_at": "2026-03-13T23:36:22+08:00",
+      "path": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/004_steamer_idea_scout_completed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "idea_scout_completed",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "005_steamer_deep_validation_completed",
+      "phase": "SYNTHESIZE",
+      "event": "steamer_deep_validation_completed",
+      "summary": "steamer deep-validation accepted tw-vcp-late-reclaim-pullback for card synthesis",
+      "created_at": "2026-03-13T23:36:23+08:00",
+      "path": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/005_steamer_deep_validation_completed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "deep_validation_accepted_for_synthesis",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "006_steamer_card_synthesis_completed",
+      "phase": "GATE",
+      "event": "steamer_card_synthesis_completed",
+      "summary": "steamer card-synthesis packaged tw-vcp-late-reclaim-pullback for operator gate review",
+      "created_at": "2026-03-13T23:36:23+08:00",
+      "path": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/006_steamer_card_synthesis_completed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "card_synthesis_packaged_for_gate",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "007_steamer_operator_gate_shadow_review_required",
+      "phase": "GATE",
+      "event": "steamer_operator_gate_shadow_review_required",
+      "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision",
+      "created_at": "2026-03-13T23:36:23+08:00",
+      "path": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/007_steamer_operator_gate_shadow_review_required.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "operator_gate_shadow_review_required",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    },
+    {
+      "receipt_id": "008_steamer_operator_gate_decision_replayed",
+      "phase": "DELIVER",
+      "event": "steamer_operator_gate_decision_replayed",
+      "summary": "steamer operator-gate decision replayed: approve_shadow_review for tw-vcp-late-reclaim-pullback; campaign can move to DELIVER",
+      "created_at": "2026-03-13T23:36:23+08:00",
+      "path": "./examples/proof-bundles/steamer-shadow-proof-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/008_steamer_operator_gate_decision_replayed.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "operator_gate_replay_approved_shadow_review",
+        "queue_before_len": 2,
+        "queue_after_len": 2,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback",
+        "operator_decision": "approve_shadow_review",
+        "operator_note": "shadow evidence accepted (seeded proof)"
+      }
+    }
+  ],
+  "drift": {
+    "status": "clean",
+    "summary": "no adapter-domain drift detected",
+    "phase_map_value": "shadow-reviewable-packet",
+    "findings": []
+  },
+  "warnings": [
+    "opaque adapter/root extension fields present (not kernel-validated): work_items"
+  ],
+  "errors": []
+}

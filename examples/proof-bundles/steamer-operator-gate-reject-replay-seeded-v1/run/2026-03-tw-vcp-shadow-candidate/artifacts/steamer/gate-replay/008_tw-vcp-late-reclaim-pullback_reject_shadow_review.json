@@ -1,0 +1,10 @@
+{
+  "candidate_id": "tw-vcp-late-reclaim-pullback",
+  "operator_decision": "reject_shadow_review",
+  "operator_note": "shadow evidence rejected (seeded proof)",
+  "phase_before": "GATE",
+  "status_before": "OPERATOR_GATE",
+  "phase_after": "CLOSED",
+  "status_after": "CLOSED",
+  "recorded_at": "2026-03-14T01:02:01+08:00"
+}

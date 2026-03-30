@@ -1,0 +1,18 @@
+{
+  "event": "steamer_operator_gate_shadow_review_required",
+  "phase_before": "GATE",
+  "phase_after": "GATE",
+  "status_before": "ACTIVE",
+  "status_after": "OPERATOR_GATE",
+  "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision",
+  "work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "operator_gate_shadow_review_required",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback"
+  },
+  "created_at": "2026-03-13T23:36:23+08:00"
+}

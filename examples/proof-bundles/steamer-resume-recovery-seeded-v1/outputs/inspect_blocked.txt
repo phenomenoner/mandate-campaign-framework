@@ -1,0 +1,25 @@
+inspect-campaign: OK
+campaign_dir: ./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate
+campaign_id: 2026-03-tw-vcp-shadow-candidate
+mandate_id: 2026-03-tw-vcp-shadow-candidate
+adapter: steamer (source=campaign_state.adapter, runtime_registered=True)
+phase: EXPLORE
+status: BLOCKED
+cycle_budget: 8
+back_transitions_remaining: 1
+active_item_id: None
+item_queue_len: 0
+wakeup: needed=True reason=steamer_no_candidate_available
+updated_at: 2026-03-13T23:45:23+08:00
+blocked_cause: code=queue_empty wakeup_reason=steamer_no_candidate_available resume_supported=True
+resume_hint: action=run_resume command=python3 tools/advance-campaign.py ./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate --resume
+resume_hint_summary: Queue-empty BLOCKED(EXPLORE). Resume is the intended move: reseed candidate context and retry idea-scout in one bounded step.
+last_receipt: path=receipts/001_steamer_no_candidate_available.json summary=steamer worker blocked: no candidate available for bounded step
+last_work_item: id=None reason=queue_empty decision=blocked_no_candidate_available
+receipts_total: 2
+drift: clean (no adapter-domain drift detected)
+receipts_preview(last 5):
+- 000_campaign_created | INTAKE | campaign_created | campaign initialized from validated mandate | 2026-03-13T23:45:23+08:00
+- 001_steamer_no_candidate_available | EXPLORE | steamer_no_candidate_available | steamer worker blocked: no candidate available for bounded step | 2026-03-13T23:45:23+08:00 | id=None reason=queue_empty decision=blocked_no_candidate_available
+warnings:
+- opaque adapter/root extension fields present (not kernel-validated): work_items

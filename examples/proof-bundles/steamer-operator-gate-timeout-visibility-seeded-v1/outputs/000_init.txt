@@ -1,0 +1,6 @@
+init-campaign: OK
+campaign_dir: ./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate
+adapter: steamer (source=mandate.adapter -> state.adapter)
+mandate: ./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/MANDATE.yaml
+state: ./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json
+receipt: ./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/000_campaign_created.json

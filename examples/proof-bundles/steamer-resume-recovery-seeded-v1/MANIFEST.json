@@ -1,0 +1,35 @@
+{
+  "bundle_id": "steamer-resume-recovery-seeded-v1",
+  "description": "Canonical seeded Steamer blocked-EXPLORE to --resume recovery run with blocked inspect and post-resume inspect outputs.",
+  "source_mandate": "examples/steamer-vcp-mandate.yaml",
+  "campaign_dir": "run/2026-03-tw-vcp-shadow-candidate",
+  "advance_outputs": [
+    "outputs/advance/001_explore_to_blocked_no_candidate.json",
+    "outputs/advance/002_blocked_resume_to_evaluate.json"
+  ],
+  "required_proof_pointers": {
+    "mutation_receipt": "outputs/001_force_explore_queue_empty.txt",
+    "blocked_inspect_text": "outputs/inspect_blocked.txt",
+    "blocked_inspect_json": "outputs/inspect_blocked.json",
+    "post_resume_inspect_text": "outputs/inspect_post_resume.txt",
+    "post_resume_inspect_json": "outputs/inspect_post_resume.json",
+    "campaign_state": "run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json",
+    "blocked_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_no_candidate_available.json",
+    "resume_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/002_steamer_resume_retry_idea_scout.json",
+    "resume_trace_artifact": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/shadow-proof/002_steamer_resume_retry_idea_scout.json",
+    "resume_idea_scout_note": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/idea-scout/tw-vcp-breakout-open-auction.md"
+  },
+  "expected_invariants": {
+    "blocked_phase": "EXPLORE",
+    "blocked_status": "BLOCKED",
+    "blocked_wakeup_reason": "steamer_no_candidate_available",
+    "resume_requested": true,
+    "resume_applied": true,
+    "resume_receipt_event": "steamer_resume_retry_idea_scout",
+    "resume_selection_reason": "resume_reseeded_queue_head",
+    "post_resume_phase": "EVALUATE",
+    "post_resume_status": "ACTIVE",
+    "post_resume_drift_status": "clean",
+    "active_item_id": "tw-vcp-breakout-open-auction"
+  }
+}

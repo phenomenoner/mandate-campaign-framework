@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "changed": true,
+  "dry_run": false,
+  "campaign_dir": "./examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "runtime_adapter": "steamer",
+  "dispatch_mode": "adapter",
+  "phase_before": "EXPLORE",
+  "phase_after": "EXPLORE",
+  "status_before": "ACTIVE",
+  "status_after": "BLOCKED",
+  "result_type": "BLOCK",
+  "resume_requested": false,
+  "resume_applied": false,
+  "replay_decision": null,
+  "replay_applied": false,
+  "receipt_id": "001_cycle_budget_exhausted",
+  "receipt_path": "./examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/001_cycle_budget_exhausted.json",
+  "materialized_artifacts": [],
+  "wakeup": {
+    "needed": true,
+    "reason": "cycle_budget_exhausted"
+  }
+}

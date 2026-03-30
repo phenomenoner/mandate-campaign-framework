@@ -1,0 +1,27 @@
+inspect-campaign: OK
+campaign_dir: ./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate
+campaign_id: 2026-03-tw-vcp-shadow-candidate
+mandate_id: 2026-03-tw-vcp-shadow-candidate
+adapter: steamer (source=campaign_state.adapter, runtime_registered=True)
+phase: GATE
+status: OPERATOR_GATE
+cycle_budget: 5
+back_transitions_remaining: 1
+active_item_id: tw-vcp-late-reclaim-pullback
+item_queue_len: 1
+wakeup: needed=True reason=steamer_shadow_review_gate
+updated_at: 2000-01-01T00:00:00+00:00
+blocked_cause: code=operator_gate_timeout wakeup_reason=steamer_shadow_review_gate resume_supported=False
+resume_hint: action=operator_decision_needed command=None
+resume_hint_summary: Operator gate timeout has gone stale. Review the gate packet and record one explicit replay decision instead of using --resume.
+operator_gate: blocked=True stale=True signal=operator_gate_timeout_exceeded signal_reason=timeout_window_exceeded
+operator_gate_timing: age_seconds=826735318 timeout_seconds=259200 remaining_seconds=None overdue_seconds=826476118
+last_receipt: path=receipts/001_steamer_operator_gate_shadow_review_required.json summary=steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision
+last_work_item: id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_shadow_review_required
+receipts_total: 2
+drift: clean (no adapter-domain drift detected)
+receipts_preview(last 5):
+- 000_campaign_created | INTAKE | campaign_created | campaign initialized from validated mandate | 2026-03-14T00:41:57+08:00
+- 001_steamer_operator_gate_shadow_review_required | GATE | steamer_operator_gate_shadow_review_required | steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision | 2000-01-01T00:00:00+00:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_shadow_review_required
+warnings:
+- opaque adapter/root extension fields present (not kernel-validated): work_items

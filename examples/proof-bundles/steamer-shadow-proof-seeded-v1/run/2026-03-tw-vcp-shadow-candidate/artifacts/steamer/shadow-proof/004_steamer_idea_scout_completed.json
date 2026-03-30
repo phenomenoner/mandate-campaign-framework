@@ -1,0 +1,18 @@
+{
+  "event": "steamer_idea_scout_completed",
+  "phase_before": "EXPLORE",
+  "phase_after": "EVALUATE",
+  "status_before": "ACTIVE",
+  "status_after": "ACTIVE",
+  "summary": "steamer idea-scout produced a scoped candidate sketch for tw-vcp-late-reclaim-pullback",
+  "work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "idea_scout_completed",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback"
+  },
+  "created_at": "2026-03-13T23:36:22+08:00"
+}

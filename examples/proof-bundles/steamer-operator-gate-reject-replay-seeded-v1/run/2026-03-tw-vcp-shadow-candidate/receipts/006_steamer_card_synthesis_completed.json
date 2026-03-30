@@ -1,0 +1,25 @@
+{
+  "receipt_id": "006_steamer_card_synthesis_completed",
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "phase": "GATE",
+  "event": "steamer_card_synthesis_completed",
+  "summary": "steamer card-synthesis packaged tw-vcp-late-reclaim-pullback for operator gate review",
+  "artifact_refs": [
+    "CAMPAIGN_STATE.json",
+    "artifacts/steamer/candidate-card/tw-vcp-late-reclaim-pullback.md",
+    "artifacts/steamer/shadow-packet/tw-vcp-late-reclaim-pullback.md",
+    "artifacts/steamer/candidate-queue.json",
+    "artifacts/steamer/shadow-proof/006_steamer_card_synthesis_completed.json"
+  ],
+  "created_at": "2026-03-14T01:02:01+08:00",
+  "work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "card_synthesis_packaged_for_gate",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "receipt_id": "005_steamer_deep_validation_completed",
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "phase": "SYNTHESIZE",
+  "event": "steamer_deep_validation_completed",
+  "summary": "steamer deep-validation accepted tw-vcp-late-reclaim-pullback for card synthesis",
+  "artifact_refs": [
+    "CAMPAIGN_STATE.json",
+    "artifacts/steamer/replay/deep-validation-tw-vcp-late-reclaim-pullback.json",
+    "artifacts/steamer/candidate-card/tw-vcp-late-reclaim-pullback.md",
+    "artifacts/steamer/candidate-queue.json",
+    "artifacts/steamer/shadow-proof/005_steamer_deep_validation_completed.json"
+  ],
+  "created_at": "2026-03-14T01:02:01+08:00",
+  "work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "deep_validation_accepted_for_synthesis",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "campaign_dir": "./examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "adapter_runtime_registered": true,
+  "state": {
+    "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+    "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+    "adapter": "steamer",
+    "phase": "EVALUATE",
+    "status": "BLOCKED",
+    "active_item_id": null,
+    "item_queue": [],
+    "cycle_budget": 8,
+    "back_transitions_remaining": 1,
+    "wakeup": {
+      "needed": true,
+      "reason": "steamer_no_candidate_available"
+    },
+    "last_receipt": {
+      "path": "receipts/001_steamer_no_candidate_available.json",
+      "summary": "steamer worker blocked: no candidate available for bounded step"
+    },
+    "updated_at": "2026-03-25T17:25:49+08:00"
+  },
+  "blocked_cause": {
+    "code": "queue_empty",
+    "wakeup_reason": "steamer_no_candidate_available",
+    "resume_supported": true,
+    "source": "state.wakeup.reason"
+  },
+  "blocked_visibility_closeout_eligibility": {
+    "eligible": false,
+    "reasons": [
+      "wakeup.reason must be one of ['cycle_budget_exhausted']",
+      "mandate.control_scenario must be one of ['budget-exhaustion-seeded']"
+    ],
+    "control_scenario": "resume-evaluate-recovery-seeded",
+    "control_lane_only": true,
+    "wakeup_reason": "steamer_no_candidate_available"
+  },
+  "resume_hint": {
+    "action": "run_resume",
+    "command": "python3 tools/advance-campaign.py ./examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate --resume",
+    "summary": "Queue-empty BLOCKED(EVALUATE). Resume is the intended move: reseed candidate context and back-shift to EXPLORE for one bounded recovery step."
+  },
+  "operator_gate_visibility": null,
+  "last_work_item": {
+    "id": null,
+    "selection_reason": "queue_empty",
+    "decision": "blocked_no_candidate_available",
+    "queue_before_len": 0,
+    "queue_after_len": 0,
+    "queue_before_head": null,
+    "queue_after_head": null
+  },
+  "receipts_total": 2,
+  "receipts_preview": [
+    {
+      "receipt_id": "000_campaign_created",
+      "phase": "INTAKE",
+      "event": "campaign_created",
+      "summary": "campaign initialized from validated mandate",
+      "created_at": "2026-03-25T17:25:49+08:00",
+      "path": "./examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/000_campaign_created.json",
+      "work_item": null
+    },
+    {
+      "receipt_id": "001_steamer_no_candidate_available",
+      "phase": "EVALUATE",
+      "event": "steamer_no_candidate_available",
+      "summary": "steamer worker blocked: no candidate available for bounded step",
+      "created_at": "2026-03-25T17:25:49+08:00",
+      "path": "./examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_no_candidate_available.json",
+      "work_item": {
+        "id": null,
+        "selection_reason": "queue_empty",
+        "decision": "blocked_no_candidate_available",
+        "queue_before_len": 0,
+        "queue_after_len": 0,
+        "queue_before_head": null,
+        "queue_after_head": null
+      }
+    }
+  ],
+  "drift": {
+    "status": "clean",
+    "summary": "note=1",
+    "phase_map_value": "fast-triage+deep-validation",
+    "findings": [
+      {
+        "severity": "note",
+        "code": "seeded_blocked_evaluate_fixture",
+        "message": "seeded control scenario resume-evaluate-recovery-seeded intentionally captures BLOCKED(EVALUATE, active_item_id=null, queue_empty) before the bounded --resume back-shift; do not treat this as live adapter drift"
+      }
+    ]
+  },
+  "warnings": [
+    "opaque adapter/root extension fields present (not kernel-validated): control_scenario, work_items"
+  ],
+  "errors": []
+}

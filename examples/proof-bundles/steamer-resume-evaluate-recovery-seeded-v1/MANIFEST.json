@@ -1,0 +1,38 @@
+{
+  "bundle_id": "steamer-resume-evaluate-recovery-seeded-v1",
+  "description": "Canonical seeded Steamer blocked-EVALUATE to --resume back-shift recovery run with an explicit control-lane fixture note on blocked inspect and clean post-resume inspect output.",
+  "source_mandate": "examples/steamer-vcp-mandate.yaml",
+  "campaign_dir": "run/2026-03-tw-vcp-shadow-candidate",
+  "advance_outputs": [
+    "outputs/advance/001_evaluate_to_blocked_no_candidate.json",
+    "outputs/advance/002_blocked_resume_to_explore.json"
+  ],
+  "required_proof_pointers": {
+    "mutation_receipt": "outputs/001_force_evaluate_queue_empty.txt",
+    "blocked_inspect_text": "outputs/inspect_blocked.txt",
+    "blocked_inspect_json": "outputs/inspect_blocked.json",
+    "post_resume_inspect_text": "outputs/inspect_post_resume.txt",
+    "post_resume_inspect_json": "outputs/inspect_post_resume.json",
+    "campaign_state": "run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json",
+    "blocked_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_no_candidate_available.json",
+    "resume_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/002_steamer_resume_recover_evaluate_to_explore.json",
+    "resume_trace_artifact": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/shadow-proof/002_steamer_resume_recover_evaluate_to_explore.json",
+    "candidate_queue_artifact": "run/2026-03-tw-vcp-shadow-candidate/artifacts/steamer/candidate-queue.json"
+  },
+  "expected_invariants": {
+    "blocked_phase": "EVALUATE",
+    "blocked_status": "BLOCKED",
+    "blocked_wakeup_reason": "steamer_no_candidate_available",
+    "blocked_drift_status": "clean",
+    "blocked_fixture_note_code": "seeded_blocked_evaluate_fixture",
+    "resume_requested": true,
+    "resume_applied": true,
+    "resume_receipt_event": "steamer_resume_recover_evaluate_to_explore",
+    "resume_selection_reason": "resume_reseeded_evaluate_queue_head",
+    "post_resume_phase": "EXPLORE",
+    "post_resume_status": "ACTIVE",
+    "post_resume_back_transitions_remaining": 0,
+    "post_resume_drift_status": "clean",
+    "active_item_id": "tw-vcp-breakout-open-auction"
+  }
+}

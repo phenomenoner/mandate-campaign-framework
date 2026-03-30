@@ -1,0 +1,13 @@
+{
+  "receipt_id": "000_campaign_created",
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "phase": "INTAKE",
+  "event": "campaign_created",
+  "summary": "campaign initialized from validated mandate",
+  "artifact_refs": [
+    "MANDATE.yaml",
+    "CAMPAIGN_STATE.json"
+  ],
+  "created_at": "2026-03-14T00:41:57+08:00"
+}

@@ -1,0 +1,23 @@
+{
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "phase": "GATE",
+  "status": "OPERATOR_GATE",
+  "active_item_id": "tw-vcp-late-reclaim-pullback",
+  "item_queue": [
+    "tw-vcp-late-reclaim-pullback",
+    "tw-vcp-range-compression-reversal"
+  ],
+  "cycle_budget": 1,
+  "back_transitions_remaining": 0,
+  "wakeup": {
+    "needed": true,
+    "reason": "steamer_shadow_review_gate"
+  },
+  "last_receipt": {
+    "path": "receipts/007_steamer_operator_gate_shadow_review_required.json",
+    "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision"
+  },
+  "updated_at": "2026-03-14T01:02:01+08:00"
+}

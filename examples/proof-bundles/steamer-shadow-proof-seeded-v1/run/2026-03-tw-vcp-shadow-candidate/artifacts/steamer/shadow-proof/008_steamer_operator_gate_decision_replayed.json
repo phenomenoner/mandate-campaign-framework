@@ -1,0 +1,20 @@
+{
+  "event": "steamer_operator_gate_decision_replayed",
+  "phase_before": "GATE",
+  "phase_after": "DELIVER",
+  "status_before": "OPERATOR_GATE",
+  "status_after": "ACTIVE",
+  "summary": "steamer operator-gate decision replayed: approve_shadow_review for tw-vcp-late-reclaim-pullback; campaign can move to DELIVER",
+  "work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "operator_gate_replay_approved_shadow_review",
+    "queue_before_len": 2,
+    "queue_after_len": 2,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback",
+    "operator_decision": "approve_shadow_review",
+    "operator_note": "shadow evidence accepted (seeded proof)"
+  },
+  "created_at": "2026-03-13T23:36:23+08:00"
+}

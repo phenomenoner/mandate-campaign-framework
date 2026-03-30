@@ -1,0 +1,7 @@
+fixture_mutation=applied
+phase=EXPLORE
+status=ACTIVE
+active_item_id=tw-vcp-breakout-open-auction
+item_queue_len=3
+cycle_budget=0
+wakeup.reason=null

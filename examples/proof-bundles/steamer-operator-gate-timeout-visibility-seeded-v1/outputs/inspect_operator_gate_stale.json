@@ -1,0 +1,103 @@
+{
+  "ok": true,
+  "campaign_dir": "./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "adapter_runtime_registered": true,
+  "state": {
+    "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+    "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+    "adapter": "steamer",
+    "phase": "GATE",
+    "status": "OPERATOR_GATE",
+    "active_item_id": "tw-vcp-late-reclaim-pullback",
+    "item_queue": [
+      "tw-vcp-late-reclaim-pullback"
+    ],
+    "cycle_budget": 5,
+    "back_transitions_remaining": 1,
+    "wakeup": {
+      "needed": true,
+      "reason": "steamer_shadow_review_gate"
+    },
+    "last_receipt": {
+      "path": "receipts/001_steamer_operator_gate_shadow_review_required.json",
+      "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision"
+    },
+    "updated_at": "2000-01-01T00:00:00+00:00"
+  },
+  "operator_gate_visibility": {
+    "blocked": true,
+    "status": "OPERATOR_GATE",
+    "wakeup_reason": "steamer_shadow_review_gate",
+    "updated_at": "2000-01-01T00:00:00+00:00",
+    "age_seconds": 826735318,
+    "timeout_days": 3,
+    "timeout_seconds": 259200,
+    "remaining_seconds": null,
+    "overdue_seconds": 826476118,
+    "stale": true,
+    "signal": "operator_gate_timeout_exceeded",
+    "signal_reason": "timeout_window_exceeded"
+  },
+  "last_work_item": {
+    "id": "tw-vcp-late-reclaim-pullback",
+    "selection_reason": "state_active_item",
+    "decision": "operator_gate_shadow_review_required",
+    "queue_before_len": 1,
+    "queue_after_len": 1,
+    "queue_before_head": "tw-vcp-late-reclaim-pullback",
+    "queue_after_head": "tw-vcp-late-reclaim-pullback"
+  },
+  "receipts_total": 2,
+  "receipts_preview": [
+    {
+      "receipt_id": "000_campaign_created",
+      "phase": "INTAKE",
+      "event": "campaign_created",
+      "summary": "campaign initialized from validated mandate",
+      "created_at": "2026-03-14T00:41:57+08:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/000_campaign_created.json",
+      "work_item": null
+    },
+    {
+      "receipt_id": "001_steamer_operator_gate_shadow_review_required",
+      "phase": "GATE",
+      "event": "steamer_operator_gate_shadow_review_required",
+      "summary": "steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision",
+      "created_at": "2000-01-01T00:00:00+00:00",
+      "path": "./examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_operator_gate_shadow_review_required.json",
+      "work_item": {
+        "id": "tw-vcp-late-reclaim-pullback",
+        "selection_reason": "state_active_item",
+        "decision": "operator_gate_shadow_review_required",
+        "queue_before_len": 1,
+        "queue_after_len": 1,
+        "queue_before_head": "tw-vcp-late-reclaim-pullback",
+        "queue_after_head": "tw-vcp-late-reclaim-pullback"
+      }
+    }
+  ],
+  "drift": {
+    "status": "clean",
+    "summary": "no adapter-domain drift detected",
+    "phase_map_value": "operator-gate",
+    "findings": []
+  },
+  "warnings": [
+    "opaque adapter/root extension fields present (not kernel-validated): work_items"
+  ],
+  "errors": [],
+  "blocked_cause": {
+    "code": "operator_gate_timeout",
+    "wakeup_reason": "steamer_shadow_review_gate",
+    "resume_supported": false,
+    "source": "operator_gate_visibility.signal"
+  },
+  "resume_hint": {
+    "action": "operator_decision_needed",
+    "command": null,
+    "summary": "Operator gate timeout has gone stale. Review the gate packet and record one explicit replay decision instead of using --resume."
+  }
+}

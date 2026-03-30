@@ -1,0 +1,26 @@
+{
+  "bundle_id": "steamer-cycle-budget-exhaustion-seeded-v1",
+  "description": "Canonical seeded Steamer cycle-budget exhaustion stop run with blocked inspect outputs.",
+  "source_mandate": "examples/steamer-vcp-mandate.yaml",
+  "campaign_dir": "run/2026-03-tw-vcp-shadow-candidate",
+  "advance_outputs": [
+    "outputs/advance/001_explore_to_blocked_cycle_budget.json"
+  ],
+  "required_proof_pointers": {
+    "mutation_receipt": "outputs/001_force_explore_cycle_budget_zero.txt",
+    "blocked_inspect_text": "outputs/inspect_blocked.txt",
+    "blocked_inspect_json": "outputs/inspect_blocked.json",
+    "campaign_state": "run/2026-03-tw-vcp-shadow-candidate/CAMPAIGN_STATE.json",
+    "blocked_receipt": "run/2026-03-tw-vcp-shadow-candidate/receipts/001_cycle_budget_exhausted.json"
+  },
+  "expected_invariants": {
+    "blocked_phase": "EXPLORE",
+    "blocked_status": "BLOCKED",
+    "blocked_wakeup_needed": true,
+    "blocked_wakeup_reason": "cycle_budget_exhausted",
+    "blocked_cycle_budget": 0,
+    "blocked_result_type": "BLOCK",
+    "blocked_receipt_event": "cycle_budget_exhausted",
+    "blocked_drift_status": "clean"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "phase": "EXPLORE",
+  "status": "BLOCKED",
+  "active_item_id": "tw-vcp-breakout-open-auction",
+  "item_queue": [
+    "tw-vcp-breakout-open-auction",
+    "tw-vcp-late-reclaim-pullback",
+    "tw-vcp-range-compression-reversal"
+  ],
+  "cycle_budget": 0,
+  "back_transitions_remaining": 1,
+  "wakeup": {
+    "needed": true,
+    "reason": "cycle_budget_exhausted"
+  },
+  "last_receipt": {
+    "path": "receipts/001_cycle_budget_exhausted.json",
+    "summary": "campaign blocked: cycle budget exhausted (dispatch=adapter, adapter=steamer)"
+  },
+  "updated_at": "2026-03-14T00:24:59+08:00"
+}

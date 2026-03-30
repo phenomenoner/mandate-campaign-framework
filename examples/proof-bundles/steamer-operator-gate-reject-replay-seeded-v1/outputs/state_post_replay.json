@@ -1,0 +1,23 @@
+{
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "phase": "CLOSED",
+  "status": "CLOSED",
+  "active_item_id": "tw-vcp-late-reclaim-pullback",
+  "item_queue": [
+    "tw-vcp-late-reclaim-pullback",
+    "tw-vcp-range-compression-reversal"
+  ],
+  "cycle_budget": 0,
+  "back_transitions_remaining": 0,
+  "wakeup": {
+    "needed": false,
+    "reason": null
+  },
+  "last_receipt": {
+    "path": "receipts/008_steamer_operator_gate_decision_replayed.json",
+    "summary": "steamer operator-gate decision replayed: reject_shadow_review for tw-vcp-late-reclaim-pullback; campaign closed without delivery"
+  },
+  "updated_at": "2026-03-14T01:02:01+08:00"
+}

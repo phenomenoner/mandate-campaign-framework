@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "changed": true,
+  "dry_run": false,
+  "campaign_dir": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "runtime_adapter": "steamer",
+  "dispatch_mode": "adapter",
+  "phase_before": "INTAKE",
+  "phase_after": "EXPLORE",
+  "status_before": "ACTIVE",
+  "status_after": "ACTIVE",
+  "result_type": "ADVANCE",
+  "resume_requested": false,
+  "resume_applied": false,
+  "replay_decision": null,
+  "replay_applied": false,
+  "receipt_id": "001_steamer_mandate_intake_completed",
+  "receipt_path": "./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_mandate_intake_completed.json",
+  "materialized_artifacts": [
+    "artifacts/steamer/candidate-queue.json",
+    "artifacts/steamer/shadow-proof/001_steamer_mandate_intake_completed.json"
+  ],
+  "wakeup": {
+    "needed": false,
+    "reason": null
+  },
+  "acted_item_id": "tw-vcp-breakout-open-auction",
+  "acted_item_reason": "seeded_queue_head",
+  "acted_item_decision": "seed_candidates_for_idea_scout",
+  "queue_len_before": 0,
+  "queue_len_after": 3
+}

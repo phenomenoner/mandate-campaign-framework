@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "changed": true,
+  "dry_run": false,
+  "campaign_dir": "./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "runtime_adapter": "steamer",
+  "dispatch_mode": "adapter",
+  "phase_before": "EXPLORE",
+  "phase_after": "EVALUATE",
+  "status_before": "BLOCKED",
+  "status_after": "ACTIVE",
+  "result_type": "ADVANCE",
+  "resume_requested": true,
+  "resume_applied": true,
+  "replay_decision": null,
+  "replay_applied": false,
+  "receipt_id": "002_steamer_resume_retry_idea_scout",
+  "receipt_path": "./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/002_steamer_resume_retry_idea_scout.json",
+  "materialized_artifacts": [
+    "artifacts/steamer/idea-scout/tw-vcp-breakout-open-auction.md",
+    "artifacts/steamer/candidate-queue.json",
+    "artifacts/steamer/shadow-proof/002_steamer_resume_retry_idea_scout.json"
+  ],
+  "wakeup": {
+    "needed": false,
+    "reason": null
+  },
+  "acted_item_id": "tw-vcp-breakout-open-auction",
+  "acted_item_reason": "resume_reseeded_queue_head",
+  "acted_item_decision": "retry_idea_scout_after_resume_recovery",
+  "queue_len_before": 0,
+  "queue_len_after": 3
+}

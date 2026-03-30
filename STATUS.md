@@ -1,46 +1,68 @@
 # mandate-campaign-framework — STATUS
 
-## Steering read (2026-03-14)
+## Release posture
 
-Current proof spine:
-- **Phase 1 done**
-- **Phase 2 minimally proven**
-- **Phase 3 in progress**
-- **6 canonical proof bundles now exist**
+- **experimental**
+- **advanced-operator**
+- **not stable** as a general orchestration product
 
-Release posture:
-- still **experimental**
-- still **advanced-operator**
-- still **not stable** as a general orchestration product
+## What is concretely real in this repo
 
-## Canonical proof progression snapshot
+- kernel `v0.1` contract frame
+- file-backed runtime flow (`validate -> init -> advance -> inspect`)
+- adapter-aware dispatch with explicit runtime adapter identity
+- executable `steamer` adapter surface
+- executable `openclaw-mem` adapter surface
+- `content-production` sketch adapter for genericity pressure-testing
+- six canonical seeded proof bundles with replay helpers
+- runtime/proof tests checked into `tests/`
 
-The active proof line now has six canonical bundles covering:
-1. seeded shadow proof + approve replay path
+## Honest roadmap snapshot
+
+- **Phase 0 done** — kernel proof
+- **Phase 1 done** — executable adapter path
+- **Phase 2 done** — Steamer shadow proof
+- **Phase 3 done** — narrow operator-loop hardening slices are real
+- **Phase 4 in progress** — repeatability breadth still not strong enough to call this broadly battle-tested
+- **Phase 5 minimally done** — second executable adapter path exists and keeps shared contracts generic
+- **Phase 6+ not claimed** — public usability, semantics freeze, RC discipline, and stable release posture remain ahead
+
+## Phase 3 closure basis
+
+Public-safe proof now covers:
+1. operator-gate escalation and replay approve path
 2. blocked `EXPLORE` resume recovery
 3. blocked `EVALUATE` resume back-shift recovery
 4. cycle-budget exhaustion stop visibility
-5. operator-gate timeout visibility
-6. operator-gate reject replay (`-> CLOSED`)
+5. operator-gate timeout visibility in inspect output
+6. operator-gate reject replay to `CLOSED`
 
-These bundles establish a minimal but real proof spine; they do **not** imply broad policy/recovery maturity.
+These are real slices, but still bounded slices.
 
-## Public convergence note
+## Why Phase 4 stays open
 
-This public repo is now doc-synced to the current proof posture.
+What is still missing for an honest repeatability claim:
+- broader non-seeded evidence breadth
+- lower interpretation load per run
+- more public-safe proof outside the Steamer-heavy bundle set
+- stronger evidence that failures are turning into known classes instead of fresh one-offs
 
-Interpretation rule:
-- treat this as an honest milestone marker, not a maturity claim
-- avoid reading current proof slices as full generic orchestration coverage
+## Public proof entrypoints
+
+- `examples/README.md`
+- `examples/proof-bundles/PROOF_INDEX.md`
+- `examples/proof-bundles/replay-all.sh`
+- `examples/operator-gate-reject-demo.sh`
+- `tests/`
 
 ## Next 3
 
-1. Keep public docs/release notes aligned with proof progression without inflating maturity.
-2. Continue Phase 3 operator-loop hardening (broader retry/timeout/recovery policy matrix).
-3. Increase repeatability breadth beyond current six canonical bundles before any stable-positioning move.
+1. Broaden repeatability beyond the current seeded Steamer proof spine.
+2. Add stronger public-safe second-adapter proof, not just runtime presence.
+3. Improve external operator bootstrap/docs without inflating maturity language.
 
 ## Design caution
 
-- Do not mistake the framework direction for a finished autopilot.
-- Do not collapse domain semantics into kernel contracts.
-- Keep operator-gate and rollbackability first while hardening continues.
+- Do not mistake explicit operator mechanics for finished product maturity.
+- Do not collapse domain nouns back into the kernel.
+- Do not present seeded proof bundles as broad production evidence.

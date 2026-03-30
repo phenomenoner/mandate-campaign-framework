@@ -1,0 +1,27 @@
+inspect-campaign: OK
+campaign_dir: ./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate
+campaign_id: 2026-03-tw-vcp-shadow-candidate
+mandate_id: 2026-03-tw-vcp-shadow-candidate
+adapter: steamer (source=campaign_state.adapter, runtime_registered=True)
+phase: GATE
+status: OPERATOR_GATE
+cycle_budget: 1
+back_transitions_remaining: 0
+active_item_id: tw-vcp-late-reclaim-pullback
+item_queue_len: 2
+wakeup: needed=True reason=steamer_shadow_review_gate
+updated_at: 2026-03-14T01:02:01+08:00
+operator_gate: blocked=True stale=False signal=operator_gate_waiting_for_operator signal_reason=within_timeout_window
+operator_gate_timing: age_seconds=0 timeout_seconds=259200 remaining_seconds=259200 overdue_seconds=None
+last_receipt: path=receipts/007_steamer_operator_gate_shadow_review_required.json summary=steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision
+last_work_item: id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_shadow_review_required
+receipts_total: 8
+drift: clean (no adapter-domain drift detected)
+receipts_preview(last 5):
+- 003_steamer_fast_triage_requests_more_explore | EXPLORE | steamer_fast_triage_requests_more_explore | steamer fast-triage marked tw-vcp-breakout-open-auction as evidence-insufficient; rotate to tw-vcp-late-reclaim-pullback for another explore pass | 2026-03-14T01:02:00+08:00 | id=tw-vcp-breakout-open-auction reason=state_active_item decision=fast_triage_rotate_to_next_candidate
+- 004_steamer_idea_scout_completed | EVALUATE | steamer_idea_scout_completed | steamer idea-scout produced a scoped candidate sketch for tw-vcp-late-reclaim-pullback | 2026-03-14T01:02:00+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=idea_scout_completed
+- 005_steamer_deep_validation_completed | SYNTHESIZE | steamer_deep_validation_completed | steamer deep-validation accepted tw-vcp-late-reclaim-pullback for card synthesis | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=deep_validation_accepted_for_synthesis
+- 006_steamer_card_synthesis_completed | GATE | steamer_card_synthesis_completed | steamer card-synthesis packaged tw-vcp-late-reclaim-pullback for operator gate review | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=card_synthesis_packaged_for_gate
+- 007_steamer_operator_gate_shadow_review_required | GATE | steamer_operator_gate_shadow_review_required | steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_shadow_review_required
+warnings:
+- opaque adapter/root extension fields present (not kernel-validated): work_items

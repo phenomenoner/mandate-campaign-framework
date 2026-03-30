@@ -1,0 +1,66 @@
+{
+  "index_version": "v1",
+  "scope": "canonical_operator_proof_bundles",
+  "bundles": [
+    {
+      "bundle_id": "steamer-shadow-proof-seeded-v1",
+      "bundle_path": "examples/proof-bundles/steamer-shadow-proof-seeded-v1",
+      "readme_path": "examples/proof-bundles/steamer-shadow-proof-seeded-v1/README.md",
+      "manifest_path": "examples/proof-bundles/steamer-shadow-proof-seeded-v1/MANIFEST.json",
+      "replay_script": "examples/proof-bundles/steamer-shadow-proof-seeded-v1/replay.sh",
+      "proves": "seeded end-to-end shadow flow with operator-gate replay to DELIVER",
+      "key_end_state": "phase=DELIVER,status=ACTIVE,drift=clean",
+      "known_caveat": "single positive replay-decision path only"
+    },
+    {
+      "bundle_id": "steamer-resume-recovery-seeded-v1",
+      "bundle_path": "examples/proof-bundles/steamer-resume-recovery-seeded-v1",
+      "readme_path": "examples/proof-bundles/steamer-resume-recovery-seeded-v1/README.md",
+      "manifest_path": "examples/proof-bundles/steamer-resume-recovery-seeded-v1/MANIFEST.json",
+      "replay_script": "examples/proof-bundles/steamer-resume-recovery-seeded-v1/replay.sh",
+      "proves": "blocked-EXPLORE queue-empty wakeup and --resume recovery",
+      "key_end_state": "phase=EVALUATE,status=ACTIVE,drift=clean",
+      "known_caveat": "blocked fixture is queue-empty only"
+    },
+    {
+      "bundle_id": "steamer-resume-evaluate-recovery-seeded-v1",
+      "bundle_path": "examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1",
+      "readme_path": "examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/README.md",
+      "manifest_path": "examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/MANIFEST.json",
+      "replay_script": "examples/proof-bundles/steamer-resume-evaluate-recovery-seeded-v1/replay.sh",
+      "proves": "blocked-EVALUATE queue-empty wakeup and --resume back-shift recovery",
+      "key_end_state": "phase=EXPLORE,status=ACTIVE,back_transitions_remaining=0,drift=clean",
+      "known_caveat": "recovery depth intentionally narrow"
+    },
+    {
+      "bundle_id": "steamer-cycle-budget-exhaustion-seeded-v1",
+      "bundle_path": "examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1",
+      "readme_path": "examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1/README.md",
+      "manifest_path": "examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1/MANIFEST.json",
+      "replay_script": "examples/proof-bundles/steamer-cycle-budget-exhaustion-seeded-v1/replay.sh",
+      "proves": "adapter-dispatch cycle-budget exhaustion stop with explicit block wake reason",
+      "key_end_state": "phase=EXPLORE,status=BLOCKED,wakeup.reason=cycle_budget_exhausted,drift=clean",
+      "known_caveat": "fixture-forced budget=0 start state only"
+    },
+    {
+      "bundle_id": "steamer-operator-gate-timeout-visibility-seeded-v1",
+      "bundle_path": "examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1",
+      "readme_path": "examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/README.md",
+      "manifest_path": "examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/MANIFEST.json",
+      "replay_script": "examples/proof-bundles/steamer-operator-gate-timeout-visibility-seeded-v1/replay.sh",
+      "proves": "operator-gate stalled-timeout visibility in inspect output after OPERATOR_GATE escalation",
+      "key_end_state": "phase=GATE,status=OPERATOR_GATE,operator_gate_visibility.signal=operator_gate_timeout_exceeded",
+      "known_caveat": "visibility slice only; no automatic timeout action policy"
+    },
+    {
+      "bundle_id": "steamer-operator-gate-reject-replay-seeded-v1",
+      "bundle_path": "examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1",
+      "readme_path": "examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/README.md",
+      "manifest_path": "examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/MANIFEST.json",
+      "replay_script": "examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/replay.sh",
+      "proves": "negative operator replay decision path (reject_shadow_review) with pre/post gate-state evidence",
+      "key_end_state": "phase=CLOSED,status=CLOSED,replay_decision=reject_shadow_review,drift=clean",
+      "known_caveat": "single seeded reject path only"
+    }
+  ]
+}

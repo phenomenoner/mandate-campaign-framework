@@ -1,0 +1,6 @@
+fixture_mutation=applied
+phase=EXPLORE
+status=ACTIVE
+active_item_id=null
+item_queue=[]
+wakeup.reason=null

@@ -1,0 +1,10 @@
+{
+  "phase": "DELIVER",
+  "active_item_id": "tw-vcp-late-reclaim-pullback",
+  "item_queue": [
+    "tw-vcp-late-reclaim-pullback",
+    "tw-vcp-range-compression-reversal"
+  ],
+  "selection_reason": "state_active_item",
+  "updated_at": "2026-03-13T23:36:23+08:00"
+}

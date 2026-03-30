@@ -1,0 +1,87 @@
+{
+  "ok": true,
+  "campaign_dir": "./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "adapter_id": "steamer",
+  "adapter_source": "campaign_state.adapter",
+  "adapter_runtime_registered": true,
+  "state": {
+    "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+    "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+    "adapter": "steamer",
+    "phase": "EXPLORE",
+    "status": "BLOCKED",
+    "active_item_id": null,
+    "item_queue": [],
+    "cycle_budget": 8,
+    "back_transitions_remaining": 1,
+    "wakeup": {
+      "needed": true,
+      "reason": "steamer_no_candidate_available"
+    },
+    "last_receipt": {
+      "path": "receipts/001_steamer_no_candidate_available.json",
+      "summary": "steamer worker blocked: no candidate available for bounded step"
+    },
+    "updated_at": "2026-03-13T23:45:23+08:00"
+  },
+  "last_work_item": {
+    "id": null,
+    "selection_reason": "queue_empty",
+    "decision": "blocked_no_candidate_available",
+    "queue_before_len": 0,
+    "queue_after_len": 0,
+    "queue_before_head": null,
+    "queue_after_head": null
+  },
+  "receipts_total": 2,
+  "receipts_preview": [
+    {
+      "receipt_id": "000_campaign_created",
+      "phase": "INTAKE",
+      "event": "campaign_created",
+      "summary": "campaign initialized from validated mandate",
+      "created_at": "2026-03-13T23:45:23+08:00",
+      "path": "./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/000_campaign_created.json",
+      "work_item": null
+    },
+    {
+      "receipt_id": "001_steamer_no_candidate_available",
+      "phase": "EXPLORE",
+      "event": "steamer_no_candidate_available",
+      "summary": "steamer worker blocked: no candidate available for bounded step",
+      "created_at": "2026-03-13T23:45:23+08:00",
+      "path": "./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate/receipts/001_steamer_no_candidate_available.json",
+      "work_item": {
+        "id": null,
+        "selection_reason": "queue_empty",
+        "decision": "blocked_no_candidate_available",
+        "queue_before_len": 0,
+        "queue_after_len": 0,
+        "queue_before_head": null,
+        "queue_after_head": null
+      }
+    }
+  ],
+  "drift": {
+    "status": "clean",
+    "summary": "no adapter-domain drift detected",
+    "phase_map_value": "idea-scout",
+    "findings": []
+  },
+  "warnings": [
+    "opaque adapter/root extension fields present (not kernel-validated): work_items"
+  ],
+  "errors": [],
+  "blocked_cause": {
+    "code": "queue_empty",
+    "wakeup_reason": "steamer_no_candidate_available",
+    "resume_supported": true,
+    "source": "state.wakeup.reason"
+  },
+  "resume_hint": {
+    "action": "run_resume",
+    "command": "python3 tools/advance-campaign.py ./examples/proof-bundles/steamer-resume-recovery-seeded-v1/run/2026-03-tw-vcp-shadow-candidate --resume",
+    "summary": "Queue-empty BLOCKED(EXPLORE). Resume is the intended move: reseed candidate context and retry idea-scout in one bounded step."
+  }
+}

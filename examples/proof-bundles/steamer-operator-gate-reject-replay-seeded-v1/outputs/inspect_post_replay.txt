@@ -1,0 +1,25 @@
+inspect-campaign: OK
+campaign_dir: ./examples/proof-bundles/steamer-operator-gate-reject-replay-seeded-v1/run/2026-03-tw-vcp-shadow-candidate
+campaign_id: 2026-03-tw-vcp-shadow-candidate
+mandate_id: 2026-03-tw-vcp-shadow-candidate
+adapter: steamer (source=campaign_state.adapter, runtime_registered=True)
+phase: CLOSED
+status: CLOSED
+cycle_budget: 0
+back_transitions_remaining: 0
+active_item_id: tw-vcp-late-reclaim-pullback
+item_queue_len: 2
+wakeup: needed=False reason=None
+updated_at: 2026-03-14T01:02:01+08:00
+last_receipt: path=receipts/008_steamer_operator_gate_decision_replayed.json summary=steamer operator-gate decision replayed: reject_shadow_review for tw-vcp-late-reclaim-pullback; campaign closed without delivery
+last_work_item: id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_replay_rejected_shadow_review
+receipts_total: 9
+drift: clean (no adapter-domain drift detected)
+receipts_preview(last 5):
+- 004_steamer_idea_scout_completed | EVALUATE | steamer_idea_scout_completed | steamer idea-scout produced a scoped candidate sketch for tw-vcp-late-reclaim-pullback | 2026-03-14T01:02:00+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=idea_scout_completed
+- 005_steamer_deep_validation_completed | SYNTHESIZE | steamer_deep_validation_completed | steamer deep-validation accepted tw-vcp-late-reclaim-pullback for card synthesis | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=deep_validation_accepted_for_synthesis
+- 006_steamer_card_synthesis_completed | GATE | steamer_card_synthesis_completed | steamer card-synthesis packaged tw-vcp-late-reclaim-pullback for operator gate review | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=card_synthesis_packaged_for_gate
+- 007_steamer_operator_gate_shadow_review_required | GATE | steamer_operator_gate_shadow_review_required | steamer operator-gate required: promotion_to_shadow_review for tw-vcp-late-reclaim-pullback needs explicit operator decision | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_shadow_review_required
+- 008_steamer_operator_gate_decision_replayed | CLOSED | steamer_operator_gate_decision_replayed | steamer operator-gate decision replayed: reject_shadow_review for tw-vcp-late-reclaim-pullback; campaign closed without delivery | 2026-03-14T01:02:01+08:00 | id=tw-vcp-late-reclaim-pullback reason=state_active_item decision=operator_gate_replay_rejected_shadow_review
+warnings:
+- opaque adapter/root extension fields present (not kernel-validated): work_items

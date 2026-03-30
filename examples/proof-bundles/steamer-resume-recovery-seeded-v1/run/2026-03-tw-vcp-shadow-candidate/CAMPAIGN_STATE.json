@@ -1,0 +1,24 @@
+{
+  "campaign_id": "2026-03-tw-vcp-shadow-candidate",
+  "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
+  "phase": "EVALUATE",
+  "status": "ACTIVE",
+  "active_item_id": "tw-vcp-breakout-open-auction",
+  "item_queue": [
+    "tw-vcp-breakout-open-auction",
+    "tw-vcp-late-reclaim-pullback",
+    "tw-vcp-range-compression-reversal"
+  ],
+  "cycle_budget": 7,
+  "back_transitions_remaining": 1,
+  "wakeup": {
+    "needed": false,
+    "reason": null
+  },
+  "last_receipt": {
+    "path": "receipts/002_steamer_resume_retry_idea_scout.json",
+    "summary": "steamer resume recovered blocked explore state (reason=steamer_no_candidate_available) by reseeding 3 candidate(s); retried idea-scout for tw-vcp-breakout-open-auction"
+  },
+  "updated_at": "2026-03-13T23:45:23+08:00"
+}

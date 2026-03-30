@@ -1,6 +1,7 @@
 {
   "campaign_id": "2026-03-tw-vcp-shadow-candidate",
   "mandate_id": "2026-03-tw-vcp-shadow-candidate",
+  "adapter": "steamer",
   "phase": "INTAKE",
   "status": "ACTIVE",
   "active_item_id": null,
