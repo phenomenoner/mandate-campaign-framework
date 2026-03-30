@@ -6,7 +6,7 @@ Four-layer shape:
 - **kernel** — shared campaign contracts and phase semantics
 - **adapters** — domain mappings
 - **runtime/tools** — bounded dispatcher + inspect surfaces
-- **proof surfaces** — replayable bundles and tests
+- **proof / closure surfaces** — replayable bundles, drills, release matrix, and tests
 
 Current autonomy reality:
 - operator-gated
@@ -26,7 +26,7 @@ operator mandate
       |                                                       v                    v
       |                                                [receipts + artifacts] -> [inspect]
       |                                                                            |
-      +------------------------------> [operator gate / replay / close-out] <------+
+      +------------------------------> [operator gate / replay / close-out] <------+ 
 ```
 
 ## Executable adapter topology
@@ -53,15 +53,20 @@ Its bounded packet spine materializes:
 ### `content-production`
 Still a sketch adapter. Useful for contract pressure-testing, not for maturity claims.
 
-## Proof topology
+## Proof / closure topology
 
 Public proof is centered on:
 - `examples/proof-bundles/PROOF_INDEX.md`
 - `examples/proof-bundles/replay-all.sh`
+- `examples/operator-drills.md`
 - `examples/operator-gate-reject-demo.sh`
+- `RELEASES/phase-closure-proof-matrix.md`
+- `protocol/external-operator-usability-pack.md`
+- `protocol/semantics-freeze-checklist.md`
 - `tests/`
 
-The six seeded proof bundles cover the current narrow operator-loop slices. They are meant to be replayable and inspectable, not marketed as broad production evidence.
+The six seeded proof bundles cover the current narrow operator-loop slices.
+The newer closure surfaces turn those bounded proofs into a single product-native compare surface for the still-open release phases.
 
 ## Roadmap calibration
 
@@ -71,11 +76,12 @@ The six seeded proof bundles cover the current narrow operator-loop slices. They
 - **Phase 3 done**
 - **Phase 4 in progress**
 - **Phase 5 minimally done**
+- **Phase 6+ open**
 
 Interpretation rule:
 - the framework direction is real
 - the operator loop is no longer only theoretical
-- repeatability and external usability are still open work
+- the remaining gate is now less about other repos and more about whether this repo can present repeatability, usability, and semantics honestly
 
 ## Packaging caution
 

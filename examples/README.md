@@ -13,6 +13,7 @@ This directory is the public-safe example surface for `mandate-campaign-framewor
 
 ### Replay helpers
 - `operator-gate-reject-demo.sh` — one-shot seeded reject-replay demo
+- `operator-drills.md` — public-safe drill sheet for a fresh operator pass
 
 ### Canonical proof bundles
 - `proof-bundles/PROOF_INDEX.md` — human-readable bundle index
@@ -22,9 +23,10 @@ This directory is the public-safe example surface for `mandate-campaign-framewor
 ## Suggested order
 
 1. Read `proof-bundles/PROOF_INDEX.md`
-2. Replay one bundle that matches the operator mechanic you care about
-3. Use `operator-gate-reject-demo.sh` if you want the shortest negative decision-path demo
-4. Inspect `tools/README.md` if you want the CLI contract surface behind the examples
+2. Read `operator-drills.md`
+3. Replay one bundle that matches the operator mechanic you care about
+4. Use `operator-gate-reject-demo.sh` if you want the shortest negative decision-path demo
+5. Inspect `tools/README.md` if you want the CLI contract surface behind the examples
 
 ## Calibration
 

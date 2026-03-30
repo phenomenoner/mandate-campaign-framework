@@ -1,6 +1,7 @@
 # Mandate Campaign Framework (Experimental / Advanced Operator)
 
-A mandate-driven, file-backed, phase-gated campaign runtime for operators who want explicit state, explicit receipts, and bounded advancement instead of hidden workflow magic.
+A mandate-driven, file-backed, phase-gated campaign runtime for operators who want explicit state,
+explicit receipts, and bounded advancement instead of hidden workflow magic.
 
 ## What is actually shipped here
 
@@ -27,6 +28,7 @@ A mandate-driven, file-backed, phase-gated campaign runtime for operators who wa
 - **Phase 3 done** — bounded operator-loop hardening slices are real
 - **Phase 4 in progress** — repeatability breadth is still the main gate
 - **Phase 5 minimally done** — a second executable adapter path exists without collapsing the kernel into Steamer nouns
+- **Phase 6+ still open** — external usability, semantics freeze, RC discipline, and stable-release posture remain ahead
 
 That is **not** the same thing as a stable general orchestration product.
 
@@ -41,6 +43,16 @@ This repo now includes public-safe proof for narrow but real operator-loop slice
 
 The scope is still intentionally tight. These are bounded operator mechanics, not a claim that every failure class is already productized.
 
+## Current closure track
+
+The next real push is now **repo-local and product-native**:
+1. `RELEASES/phase-closure-proof-matrix.md` — one compare surface for Phases 4/5/6/7/8
+2. `examples/operator-drills.md` — public-safe drills an advanced operator can actually run
+3. `protocol/external-operator-usability-pack.md` — the minimum pack an outside operator should be able to follow
+4. `protocol/semantics-freeze-checklist.md` — explicit freeze-now vs still-moving semantics
+
+This is how the remaining phases move **without waiting on active Steamer, openclaw-mem, or other product-line work**.
+
 ## What is still not done
 
 - broad repeatability across many domains and campaign shapes
@@ -52,10 +64,13 @@ The scope is still intentionally tight. These are bounded operator mechanics, no
 ## Start here
 
 1. `STATUS.md` — current posture and limits
-2. `TOPOLOGY.md` — system shape and proof surface
-3. `examples/README.md` — examples, proof bundles, replay entrypoints
-4. `tools/README.md` — CLI/runtime surface
-5. `tests/` — current verifier surface
+2. `RELEASES/phase-closure-proof-matrix.md` — remaining-phase compare surface
+3. `examples/operator-drills.md` — public-safe drills
+4. `protocol/external-operator-usability-pack.md` — minimum operator pack
+5. `protocol/semantics-freeze-checklist.md` — freeze checklist
+6. `examples/proof-bundles/PROOF_INDEX.md` — canonical replay index
+7. `tools/README.md` — CLI/runtime surface
+8. `tests/` — current verifier surface
 
 ## Repository map
 
@@ -63,7 +78,9 @@ The scope is still intentionally tight. These are bounded operator mechanics, no
 - `adapters/` — domain bindings
 - `tools/` — bounded runtime CLIs
 - `campaigns/` — seeded file-backed campaign example
-- `examples/` — mandate examples, proof bundles, replay helpers
+- `examples/` — mandate examples, proof bundles, replay helpers, operator drills
+- `protocol/` — thin operator packaging, usability, and semantics docs
+- `RELEASES/` — release-facing proof and calibration surfaces
 - `tests/` — runtime and proof verification
 
 ## Operator honesty

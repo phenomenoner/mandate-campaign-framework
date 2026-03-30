@@ -23,7 +23,7 @@
 - **Phase 1 done** — executable adapter path
 - **Phase 2 done** — Steamer shadow proof
 - **Phase 3 done** — narrow operator-loop hardening slices are real
-- **Phase 4 in progress** — repeatability breadth still not strong enough to call this broadly battle-tested
+- **Phase 4 in progress** — repeatability breadth still is not strong enough to call this broadly battle-tested
 - **Phase 5 minimally done** — second executable adapter path exists and keeps shared contracts generic
 - **Phase 6+ not claimed** — public usability, semantics freeze, RC discipline, and stable release posture remain ahead
 
@@ -47,22 +47,41 @@ What is still missing for an honest repeatability claim:
 - more public-safe proof outside the Steamer-heavy bundle set
 - stronger evidence that failures are turning into known classes instead of fresh one-offs
 
-## Public proof entrypoints
+## Current forcing move for the remaining phases
+
+The next forcing move is **not** “wait for more work in another repo.”
+It is the repo-local closure pack now checked in here:
+- `RELEASES/phase-closure-proof-matrix.md`
+- `examples/operator-drills.md`
+- `protocol/external-operator-usability-pack.md`
+- `protocol/semantics-freeze-checklist.md`
+
+Those four surfaces are the current bridge from:
+- Phase 4 repeatability truth
+- to Phase 6 external advanced-operator usability
+- to Phase 7 semantics freeze
+- to Phase 8 RC assembly
+
+## Public proof / closure entrypoints
 
 - `examples/README.md`
+- `examples/operator-drills.md`
 - `examples/proof-bundles/PROOF_INDEX.md`
 - `examples/proof-bundles/replay-all.sh`
-- `examples/operator-gate-reject-demo.sh`
+- `RELEASES/phase-closure-proof-matrix.md`
+- `protocol/external-operator-usability-pack.md`
+- `protocol/semantics-freeze-checklist.md`
 - `tests/`
 
 ## Next 3
 
-1. Broaden repeatability beyond the current seeded Steamer proof spine.
-2. Add stronger public-safe second-adapter proof, not just runtime presence.
-3. Improve external operator bootstrap/docs without inflating maturity language.
+1. Re-run the operator drills from a fresh checkout or clean temp output root and keep the resulting receipts easy to compare.
+2. Add at least one stronger public-safe second-adapter drill so Phase 4/5 evidence is less Steamer-concentrated.
+3. Keep the semantics-freeze delta list explicit until compatibility promises become honest.
 
 ## Design caution
 
 - Do not mistake explicit operator mechanics for finished product maturity.
 - Do not collapse domain nouns back into the kernel.
 - Do not present seeded proof bundles as broad production evidence.
+- Do not pretend a thin skill or docs pack means the framework is already stable.
